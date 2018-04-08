@@ -1,30 +1,47 @@
-import Entity from './entity';
+const Entity = require('./entity');
 
-export const MOVE_UP = 'MOVE_UP';
-export const MOVE_RIGHT = 'MOVE_RIGHT';
-export const MOVE_DOWN = 'MOVE_DOWN';
-export const MOVE_LEFT = 'MOVE_LEFT';
+const MOVE_UP = 'MOVE_UP';
+const MOVE_RIGHT = 'MOVE_RIGHT';
+const MOVE_DOWN = 'MOVE_DOWN';
+const MOVE_LEFT = 'MOVE_LEFT';
 
 /**
  * Create a Gravnic game
  * @param {Array} tiles - A 2D array of tiles to create the game state from
  * @returns {Array} A 2D array that represents the current game state
  */
-export const convertTilesToGameState = tiles => {
+const convertTilesToGameState = tiles => {
   const gameState = [];
   const gridSize = Math.round(Math.sqrt(tiles.length));
   let gridRow;
+  let currentIdCount = 1;
 
   for (let i = 0; i < gridSize; i++) {
     gridRow = [];
 
     for (let j = 0; j < gridSize; j++) {
-      const entity = {
-        id: i * gridSize + j,
-        entityId: tiles[i * gridSize + j].selectedTileId,
-      };
+      const entityId = tiles[i * gridSize + j].selectedTileId;
+      let staticEntity = null;
+      let movableEntity = null;
 
-      gridRow.push(entity);
+      if (entityId === Entity.BLOCK) {
+        movableEntity = {
+          id: currentIdCount++,
+          entityId: Entity.BLOCK,
+        };
+      }
+
+      if (entityId === Entity.FLOOR || entityId === Entity.BLOCK) {
+        staticEntity = {
+          id: currentIdCount++,
+          entityId: Entity.FLOOR,
+        };
+      }
+
+      gridRow.push({
+        staticEntity,
+        movableEntity,
+      });
     }
 
     gameState.push(gridRow);
@@ -39,8 +56,8 @@ export const convertTilesToGameState = tiles => {
  * @param {String} direction - The direction of gravity to move the entities in
  * @returns {Array} The updated game state
  */
-export const calulateNextGameState = (gameState, direction) => {
-  const newGameState = gameState.map(gameStateRow => gameStateRow.slice());
+const calulateNextGameState = (gameState, direction) => {
+  const newGameState = JSON.parse(JSON.stringify(gameState));
   let finished = true;
   let i;
   let j;
@@ -50,11 +67,12 @@ export const calulateNextGameState = (gameState, direction) => {
       for (i = 1; i < newGameState.length; i++) {
         for (j = 0; j < newGameState[i].length; j++) {
           if (
-            newGameState[i][j].entityId === Entity.BLOCK &&
-            newGameState[i - 1][j].entityId === Entity.FLOOR
+            newGameState[i][j].movableEntity &&
+            !newGameState[i - 1][j].movableEntity &&
+            newGameState[i - 1][j].staticEntity
           ) {
-            newGameState[i][j].entityId = Entity.FLOOR;
-            newGameState[i - 1][j].entityId = Entity.BLOCK;
+            newGameState[i - 1][j].movableEntity = newGameState[i][j].movableEntity;
+            newGameState[i][j].movableEntity = null;
             finished = false;
           }
         }
@@ -63,13 +81,14 @@ export const calulateNextGameState = (gameState, direction) => {
     }
     case MOVE_RIGHT: {
       for (i = 0; i < newGameState.length; i++) {
-        for (j = newGameState[i].length - 2; j > 0; j--) {
+        for (j = newGameState[i].length - 2; j >= 0; j--) {
           if (
-            newGameState[i][j].entityId === Entity.BLOCK &&
-            newGameState[i][j + 1].entityId === Entity.FLOOR
+            newGameState[i][j].movableEntity &&
+            !newGameState[i][j + 1].movableEntity &&
+            newGameState[i][j + 1].staticEntity
           ) {
-            newGameState[i][j].entityId = Entity.FLOOR;
-            newGameState[i][j + 1].entityId = Entity.BLOCK;
+            newGameState[i][j + 1].movableEntity = newGameState[i][j].movableEntity;
+            newGameState[i][j].movableEntity = null;
             finished = false;
           }
         }
@@ -78,13 +97,14 @@ export const calulateNextGameState = (gameState, direction) => {
     }
     case MOVE_LEFT: {
       for (i = 0; i < newGameState.length; i++) {
-        for (j = 1; j < newGameState[1].length - 1; j++) {
+        for (j = 1; j < newGameState[i].length; j++) {
           if (
-            newGameState[i][j].entityId === Entity.BLOCK &&
-            newGameState[i][j - 1].entityId === Entity.FLOOR
+            newGameState[i][j].movableEntity &&
+            !newGameState[i][j - 1].movableEntity &&
+            newGameState[i][j - 1].staticEntity
           ) {
-            newGameState[i][j].entityId = Entity.FLOOR;
-            newGameState[i][j - 1].entityId = Entity.BLOCK;
+            newGameState[i][j - 1].movableEntity = newGameState[i][j].movableEntity;
+            newGameState[i][j].movableEntity = null;
             finished = false;
           }
         }
@@ -92,14 +112,15 @@ export const calulateNextGameState = (gameState, direction) => {
       break;
     }
     case MOVE_DOWN: {
-      for (i = newGameState.length - 2; i > 0; i--) {
+      for (i = newGameState.length - 2; i >= 0; i--) {
         for (j = 0; j < newGameState[i].length; j++) {
           if (
-            newGameState[i][j].entityId === Entity.BLOCK &&
-            newGameState[i + 1][j].entityId === Entity.FLOOR
+            newGameState[i][j].movableEntity &&
+            !newGameState[i + 1][j].movableEntity &&
+            newGameState[i + 1][j].staticEntity
           ) {
-            newGameState[i][j].entityId = Entity.FLOOR;
-            newGameState[i + 1][j].entityId = Entity.BLOCK;
+            newGameState[i + 1][j].movableEntity = newGameState[i][j].movableEntity;
+            newGameState[i][j].movableEntity = null;
             finished = false;
           }
         }
@@ -123,7 +144,7 @@ export const calulateNextGameState = (gameState, direction) => {
  * @param {String} direction - The direction new direction of gravity to move the entities in
  * @returns {Array} An array of all of the game states until entities can no longer move
  */
-export const changeGravityDirection = (gameState, direction) => {
+const changeGravityDirection = (gameState, direction) => {
   const moveGameStates = [];
   let nextGameState;
   let currentGameState = gameState;
@@ -138,4 +159,14 @@ export const changeGravityDirection = (gameState, direction) => {
   } while (nextGameState);
 
   return moveGameStates;
+};
+
+module.exports = {
+  MOVE_UP,
+  MOVE_RIGHT,
+  MOVE_DOWN,
+  MOVE_LEFT,
+  convertTilesToGameState,
+  calulateNextGameState,
+  changeGravityDirection,
 };

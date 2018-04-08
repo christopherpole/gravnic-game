@@ -1,7 +1,9 @@
-class Entity {}
+const NONE = 0;
+const FLOOR = 1;
+const BLOCK = 2;
 
-Entity.NONE = 0;
-Entity.FLOOR = 1;
-Entity.BLOCK = 2;
-
-export default Entity;
+module.exports = {
+  NONE,
+  FLOOR,
+  BLOCK,
+};
