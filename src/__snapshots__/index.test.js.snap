@@ -1,0 +1,1258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gravnic calulateNextGameState() Should return the next game state when moving entities down 1`] = `
+Array [
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 0,
+    },
+    Object {
+      "entityId": 1,
+      "id": 1,
+    },
+    Object {
+      "entityId": 1,
+      "id": 2,
+    },
+    Object {
+      "entityId": 1,
+      "id": 3,
+    },
+    Object {
+      "entityId": 0,
+      "id": 4,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 5,
+    },
+    Object {
+      "entityId": 1,
+      "id": 6,
+    },
+    Object {
+      "entityId": 1,
+      "id": 7,
+    },
+    Object {
+      "entityId": 1,
+      "id": 8,
+    },
+    Object {
+      "entityId": 1,
+      "id": 9,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 10,
+    },
+    Object {
+      "entityId": 1,
+      "id": 11,
+    },
+    Object {
+      "entityId": 1,
+      "id": 12,
+    },
+    Object {
+      "entityId": 1,
+      "id": 13,
+    },
+    Object {
+      "entityId": 1,
+      "id": 14,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 15,
+    },
+    Object {
+      "entityId": 1,
+      "id": 16,
+    },
+    Object {
+      "entityId": 2,
+      "id": 17,
+    },
+    Object {
+      "entityId": 1,
+      "id": 18,
+    },
+    Object {
+      "entityId": 1,
+      "id": 19,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 20,
+    },
+    Object {
+      "entityId": 1,
+      "id": 21,
+    },
+    Object {
+      "entityId": 1,
+      "id": 22,
+    },
+    Object {
+      "entityId": 1,
+      "id": 23,
+    },
+    Object {
+      "entityId": 0,
+      "id": 24,
+    },
+  ],
+]
+`;
+
+exports[`Gravnic calulateNextGameState() Should return the next game state when moving entities left 1`] = `
+Array [
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 0,
+    },
+    Object {
+      "entityId": 1,
+      "id": 1,
+    },
+    Object {
+      "entityId": 1,
+      "id": 2,
+    },
+    Object {
+      "entityId": 1,
+      "id": 3,
+    },
+    Object {
+      "entityId": 0,
+      "id": 4,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 5,
+    },
+    Object {
+      "entityId": 1,
+      "id": 6,
+    },
+    Object {
+      "entityId": 1,
+      "id": 7,
+    },
+    Object {
+      "entityId": 1,
+      "id": 8,
+    },
+    Object {
+      "entityId": 1,
+      "id": 9,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 10,
+    },
+    Object {
+      "entityId": 2,
+      "id": 11,
+    },
+    Object {
+      "entityId": 1,
+      "id": 12,
+    },
+    Object {
+      "entityId": 1,
+      "id": 13,
+    },
+    Object {
+      "entityId": 1,
+      "id": 14,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 15,
+    },
+    Object {
+      "entityId": 1,
+      "id": 16,
+    },
+    Object {
+      "entityId": 1,
+      "id": 17,
+    },
+    Object {
+      "entityId": 1,
+      "id": 18,
+    },
+    Object {
+      "entityId": 1,
+      "id": 19,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 20,
+    },
+    Object {
+      "entityId": 1,
+      "id": 21,
+    },
+    Object {
+      "entityId": 1,
+      "id": 22,
+    },
+    Object {
+      "entityId": 1,
+      "id": 23,
+    },
+    Object {
+      "entityId": 0,
+      "id": 24,
+    },
+  ],
+]
+`;
+
+exports[`Gravnic calulateNextGameState() Should return the next game state when moving entities right 1`] = `
+Array [
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 0,
+    },
+    Object {
+      "entityId": 1,
+      "id": 1,
+    },
+    Object {
+      "entityId": 1,
+      "id": 2,
+    },
+    Object {
+      "entityId": 1,
+      "id": 3,
+    },
+    Object {
+      "entityId": 0,
+      "id": 4,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 5,
+    },
+    Object {
+      "entityId": 1,
+      "id": 6,
+    },
+    Object {
+      "entityId": 1,
+      "id": 7,
+    },
+    Object {
+      "entityId": 1,
+      "id": 8,
+    },
+    Object {
+      "entityId": 1,
+      "id": 9,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 10,
+    },
+    Object {
+      "entityId": 1,
+      "id": 11,
+    },
+    Object {
+      "entityId": 1,
+      "id": 12,
+    },
+    Object {
+      "entityId": 2,
+      "id": 13,
+    },
+    Object {
+      "entityId": 1,
+      "id": 14,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 15,
+    },
+    Object {
+      "entityId": 1,
+      "id": 16,
+    },
+    Object {
+      "entityId": 1,
+      "id": 17,
+    },
+    Object {
+      "entityId": 1,
+      "id": 18,
+    },
+    Object {
+      "entityId": 1,
+      "id": 19,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 20,
+    },
+    Object {
+      "entityId": 1,
+      "id": 21,
+    },
+    Object {
+      "entityId": 1,
+      "id": 22,
+    },
+    Object {
+      "entityId": 1,
+      "id": 23,
+    },
+    Object {
+      "entityId": 0,
+      "id": 24,
+    },
+  ],
+]
+`;
+
+exports[`Gravnic calulateNextGameState() Should return the next game state when moving entities up 1`] = `
+Array [
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 0,
+    },
+    Object {
+      "entityId": 1,
+      "id": 1,
+    },
+    Object {
+      "entityId": 1,
+      "id": 2,
+    },
+    Object {
+      "entityId": 1,
+      "id": 3,
+    },
+    Object {
+      "entityId": 0,
+      "id": 4,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 5,
+    },
+    Object {
+      "entityId": 1,
+      "id": 6,
+    },
+    Object {
+      "entityId": 2,
+      "id": 7,
+    },
+    Object {
+      "entityId": 1,
+      "id": 8,
+    },
+    Object {
+      "entityId": 1,
+      "id": 9,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 10,
+    },
+    Object {
+      "entityId": 1,
+      "id": 11,
+    },
+    Object {
+      "entityId": 1,
+      "id": 12,
+    },
+    Object {
+      "entityId": 1,
+      "id": 13,
+    },
+    Object {
+      "entityId": 1,
+      "id": 14,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 15,
+    },
+    Object {
+      "entityId": 1,
+      "id": 16,
+    },
+    Object {
+      "entityId": 1,
+      "id": 17,
+    },
+    Object {
+      "entityId": 1,
+      "id": 18,
+    },
+    Object {
+      "entityId": 1,
+      "id": 19,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 20,
+    },
+    Object {
+      "entityId": 1,
+      "id": 21,
+    },
+    Object {
+      "entityId": 1,
+      "id": 22,
+    },
+    Object {
+      "entityId": 1,
+      "id": 23,
+    },
+    Object {
+      "entityId": 0,
+      "id": 24,
+    },
+  ],
+]
+`;
+
+exports[`Gravnic changeGravityDirection() Should return an array of all game states from the move 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 0,
+      },
+      Object {
+        "entityId": 1,
+        "id": 1,
+      },
+      Object {
+        "entityId": 1,
+        "id": 2,
+      },
+      Object {
+        "entityId": 1,
+        "id": 3,
+      },
+      Object {
+        "entityId": 0,
+        "id": 4,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 5,
+      },
+      Object {
+        "entityId": 1,
+        "id": 6,
+      },
+      Object {
+        "entityId": 1,
+        "id": 7,
+      },
+      Object {
+        "entityId": 1,
+        "id": 8,
+      },
+      Object {
+        "entityId": 1,
+        "id": 9,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 10,
+      },
+      Object {
+        "entityId": 1,
+        "id": 11,
+      },
+      Object {
+        "entityId": 1,
+        "id": 12,
+      },
+      Object {
+        "entityId": 1,
+        "id": 13,
+      },
+      Object {
+        "entityId": 1,
+        "id": 14,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 15,
+      },
+      Object {
+        "entityId": 1,
+        "id": 16,
+      },
+      Object {
+        "entityId": 1,
+        "id": 17,
+      },
+      Object {
+        "entityId": 1,
+        "id": 18,
+      },
+      Object {
+        "entityId": 1,
+        "id": 19,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 20,
+      },
+      Object {
+        "entityId": 1,
+        "id": 21,
+      },
+      Object {
+        "entityId": 2,
+        "id": 22,
+      },
+      Object {
+        "entityId": 1,
+        "id": 23,
+      },
+      Object {
+        "entityId": 0,
+        "id": 24,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 0,
+      },
+      Object {
+        "entityId": 1,
+        "id": 1,
+      },
+      Object {
+        "entityId": 1,
+        "id": 2,
+      },
+      Object {
+        "entityId": 1,
+        "id": 3,
+      },
+      Object {
+        "entityId": 0,
+        "id": 4,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 5,
+      },
+      Object {
+        "entityId": 1,
+        "id": 6,
+      },
+      Object {
+        "entityId": 1,
+        "id": 7,
+      },
+      Object {
+        "entityId": 1,
+        "id": 8,
+      },
+      Object {
+        "entityId": 1,
+        "id": 9,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 10,
+      },
+      Object {
+        "entityId": 1,
+        "id": 11,
+      },
+      Object {
+        "entityId": 1,
+        "id": 12,
+      },
+      Object {
+        "entityId": 1,
+        "id": 13,
+      },
+      Object {
+        "entityId": 1,
+        "id": 14,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 15,
+      },
+      Object {
+        "entityId": 1,
+        "id": 16,
+      },
+      Object {
+        "entityId": 1,
+        "id": 17,
+      },
+      Object {
+        "entityId": 1,
+        "id": 18,
+      },
+      Object {
+        "entityId": 1,
+        "id": 19,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 20,
+      },
+      Object {
+        "entityId": 1,
+        "id": 21,
+      },
+      Object {
+        "entityId": 2,
+        "id": 22,
+      },
+      Object {
+        "entityId": 1,
+        "id": 23,
+      },
+      Object {
+        "entityId": 0,
+        "id": 24,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Gravnic changeGravityDirection() Should return an array of all game states from the move 2`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 0,
+      },
+      Object {
+        "entityId": 1,
+        "id": 1,
+      },
+      Object {
+        "entityId": 2,
+        "id": 2,
+      },
+      Object {
+        "entityId": 1,
+        "id": 3,
+      },
+      Object {
+        "entityId": 0,
+        "id": 4,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 5,
+      },
+      Object {
+        "entityId": 1,
+        "id": 6,
+      },
+      Object {
+        "entityId": 1,
+        "id": 7,
+      },
+      Object {
+        "entityId": 1,
+        "id": 8,
+      },
+      Object {
+        "entityId": 1,
+        "id": 9,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 10,
+      },
+      Object {
+        "entityId": 1,
+        "id": 11,
+      },
+      Object {
+        "entityId": 1,
+        "id": 12,
+      },
+      Object {
+        "entityId": 1,
+        "id": 13,
+      },
+      Object {
+        "entityId": 1,
+        "id": 14,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 15,
+      },
+      Object {
+        "entityId": 1,
+        "id": 16,
+      },
+      Object {
+        "entityId": 1,
+        "id": 17,
+      },
+      Object {
+        "entityId": 1,
+        "id": 18,
+      },
+      Object {
+        "entityId": 1,
+        "id": 19,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 20,
+      },
+      Object {
+        "entityId": 1,
+        "id": 21,
+      },
+      Object {
+        "entityId": 1,
+        "id": 22,
+      },
+      Object {
+        "entityId": 1,
+        "id": 23,
+      },
+      Object {
+        "entityId": 0,
+        "id": 24,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 0,
+      },
+      Object {
+        "entityId": 1,
+        "id": 1,
+      },
+      Object {
+        "entityId": 2,
+        "id": 2,
+      },
+      Object {
+        "entityId": 1,
+        "id": 3,
+      },
+      Object {
+        "entityId": 0,
+        "id": 4,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 5,
+      },
+      Object {
+        "entityId": 1,
+        "id": 6,
+      },
+      Object {
+        "entityId": 1,
+        "id": 7,
+      },
+      Object {
+        "entityId": 1,
+        "id": 8,
+      },
+      Object {
+        "entityId": 1,
+        "id": 9,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 10,
+      },
+      Object {
+        "entityId": 1,
+        "id": 11,
+      },
+      Object {
+        "entityId": 1,
+        "id": 12,
+      },
+      Object {
+        "entityId": 1,
+        "id": 13,
+      },
+      Object {
+        "entityId": 1,
+        "id": 14,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 15,
+      },
+      Object {
+        "entityId": 1,
+        "id": 16,
+      },
+      Object {
+        "entityId": 1,
+        "id": 17,
+      },
+      Object {
+        "entityId": 1,
+        "id": 18,
+      },
+      Object {
+        "entityId": 1,
+        "id": 19,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 20,
+      },
+      Object {
+        "entityId": 1,
+        "id": 21,
+      },
+      Object {
+        "entityId": 1,
+        "id": 22,
+      },
+      Object {
+        "entityId": 1,
+        "id": 23,
+      },
+      Object {
+        "entityId": 0,
+        "id": 24,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 0,
+      },
+      Object {
+        "entityId": 1,
+        "id": 1,
+      },
+      Object {
+        "entityId": 2,
+        "id": 2,
+      },
+      Object {
+        "entityId": 1,
+        "id": 3,
+      },
+      Object {
+        "entityId": 0,
+        "id": 4,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 5,
+      },
+      Object {
+        "entityId": 1,
+        "id": 6,
+      },
+      Object {
+        "entityId": 1,
+        "id": 7,
+      },
+      Object {
+        "entityId": 1,
+        "id": 8,
+      },
+      Object {
+        "entityId": 1,
+        "id": 9,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 10,
+      },
+      Object {
+        "entityId": 1,
+        "id": 11,
+      },
+      Object {
+        "entityId": 1,
+        "id": 12,
+      },
+      Object {
+        "entityId": 1,
+        "id": 13,
+      },
+      Object {
+        "entityId": 1,
+        "id": 14,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 15,
+      },
+      Object {
+        "entityId": 1,
+        "id": 16,
+      },
+      Object {
+        "entityId": 1,
+        "id": 17,
+      },
+      Object {
+        "entityId": 1,
+        "id": 18,
+      },
+      Object {
+        "entityId": 1,
+        "id": 19,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 20,
+      },
+      Object {
+        "entityId": 1,
+        "id": 21,
+      },
+      Object {
+        "entityId": 1,
+        "id": 22,
+      },
+      Object {
+        "entityId": 1,
+        "id": 23,
+      },
+      Object {
+        "entityId": 0,
+        "id": 24,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 0,
+      },
+      Object {
+        "entityId": 1,
+        "id": 1,
+      },
+      Object {
+        "entityId": 2,
+        "id": 2,
+      },
+      Object {
+        "entityId": 1,
+        "id": 3,
+      },
+      Object {
+        "entityId": 0,
+        "id": 4,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 5,
+      },
+      Object {
+        "entityId": 1,
+        "id": 6,
+      },
+      Object {
+        "entityId": 1,
+        "id": 7,
+      },
+      Object {
+        "entityId": 1,
+        "id": 8,
+      },
+      Object {
+        "entityId": 1,
+        "id": 9,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 10,
+      },
+      Object {
+        "entityId": 1,
+        "id": 11,
+      },
+      Object {
+        "entityId": 1,
+        "id": 12,
+      },
+      Object {
+        "entityId": 1,
+        "id": 13,
+      },
+      Object {
+        "entityId": 1,
+        "id": 14,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 1,
+        "id": 15,
+      },
+      Object {
+        "entityId": 1,
+        "id": 16,
+      },
+      Object {
+        "entityId": 1,
+        "id": 17,
+      },
+      Object {
+        "entityId": 1,
+        "id": 18,
+      },
+      Object {
+        "entityId": 1,
+        "id": 19,
+      },
+    ],
+    Array [
+      Object {
+        "entityId": 0,
+        "id": 20,
+      },
+      Object {
+        "entityId": 1,
+        "id": 21,
+      },
+      Object {
+        "entityId": 1,
+        "id": 22,
+      },
+      Object {
+        "entityId": 1,
+        "id": 23,
+      },
+      Object {
+        "entityId": 0,
+        "id": 24,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Gravnic convertTilesToGameState() Converts the tiles into a starting game state 1`] = `
+Array [
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 0,
+    },
+    Object {
+      "entityId": 1,
+      "id": 1,
+    },
+    Object {
+      "entityId": 1,
+      "id": 2,
+    },
+    Object {
+      "entityId": 1,
+      "id": 3,
+    },
+    Object {
+      "entityId": 0,
+      "id": 4,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 5,
+    },
+    Object {
+      "entityId": 1,
+      "id": 6,
+    },
+    Object {
+      "entityId": 1,
+      "id": 7,
+    },
+    Object {
+      "entityId": 1,
+      "id": 8,
+    },
+    Object {
+      "entityId": 1,
+      "id": 9,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 10,
+    },
+    Object {
+      "entityId": 1,
+      "id": 11,
+    },
+    Object {
+      "entityId": 2,
+      "id": 12,
+    },
+    Object {
+      "entityId": 1,
+      "id": 13,
+    },
+    Object {
+      "entityId": 1,
+      "id": 14,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 1,
+      "id": 15,
+    },
+    Object {
+      "entityId": 1,
+      "id": 16,
+    },
+    Object {
+      "entityId": 1,
+      "id": 17,
+    },
+    Object {
+      "entityId": 1,
+      "id": 18,
+    },
+    Object {
+      "entityId": 1,
+      "id": 19,
+    },
+  ],
+  Array [
+    Object {
+      "entityId": 0,
+      "id": 20,
+    },
+    Object {
+      "entityId": 1,
+      "id": 21,
+    },
+    Object {
+      "entityId": 1,
+      "id": 22,
+    },
+    Object {
+      "entityId": 1,
+      "id": 23,
+    },
+    Object {
+      "entityId": 0,
+      "id": 24,
+    },
+  ],
+]
+`;
