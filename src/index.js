@@ -1,9 +1,13 @@
-const Entity = require('./entity');
-
 const MOVE_UP = 'MOVE_UP';
 const MOVE_RIGHT = 'MOVE_RIGHT';
 const MOVE_DOWN = 'MOVE_DOWN';
 const MOVE_LEFT = 'MOVE_LEFT';
+
+const ENTITIES = {
+  NONE: 'ENTITY_NONE',
+  FLOOR: 'ENTITY_FLOOR',
+  BLOCK: 'ENTITY_BLOCK',
+};
 
 /**
  * Create a Gravnic game
@@ -24,17 +28,17 @@ const convertTilesToGameState = tiles => {
       let staticEntity = null;
       let movableEntity = null;
 
-      if (entityId === Entity.BLOCK) {
+      if (entityId === ENTITIES.BLOCK) {
         movableEntity = {
           id: currentIdCount++,
-          entityId: Entity.BLOCK,
+          entityId: ENTITIES.BLOCK,
         };
       }
 
-      if (entityId === Entity.FLOOR || entityId === Entity.BLOCK) {
+      if (entityId === ENTITIES.FLOOR || entityId === ENTITIES.BLOCK) {
         staticEntity = {
           id: currentIdCount++,
-          entityId: Entity.FLOOR,
+          entityId: ENTITIES.FLOOR,
         };
       }
 
@@ -162,6 +166,7 @@ const changeGravityDirection = (gameState, direction) => {
 };
 
 module.exports = {
+  ENTITIES,
   MOVE_UP,
   MOVE_RIGHT,
   MOVE_DOWN,

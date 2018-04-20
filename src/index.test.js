@@ -1,4 +1,5 @@
 import {
+  ENTITIES,
   MOVE_UP,
   MOVE_RIGHT,
   MOVE_DOWN,
@@ -7,108 +8,107 @@ import {
   calulateNextGameState,
   changeGravityDirection,
 } from './index';
-import Entity from './entity';
 
 const testTiles = [
   {
     position: 1,
-    selectedTileId: Entity.NONE,
+    selectedTileId: ENTITIES.NONE,
   },
   {
     position: 2,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 3,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 4,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 5,
-    selectedTileId: Entity.NONE,
+    selectedTileId: ENTITIES.NONE,
   },
   {
     position: 6,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 7,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 8,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 9,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 10,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 11,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 12,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 13,
-    selectedTileId: Entity.BLOCK,
+    selectedTileId: ENTITIES.BLOCK,
   },
   {
     position: 14,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 15,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 16,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 17,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 18,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 19,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 20,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 21,
-    selectedTileId: Entity.NONE,
+    selectedTileId: ENTITIES.NONE,
   },
   {
     position: 22,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 23,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 24,
-    selectedTileId: Entity.FLOOR,
+    selectedTileId: ENTITIES.FLOOR,
   },
   {
     position: 25,
-    selectedTileId: Entity.NONE,
+    selectedTileId: ENTITIES.NONE,
   },
 ];
 
