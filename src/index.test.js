@@ -4,7 +4,6 @@ import {
   MOVE_RIGHT,
   MOVE_DOWN,
   MOVE_LEFT,
-  convertTilesToGameState,
   calulateNextGameState,
   changeGravityDirection,
 } from './index';
@@ -113,14 +112,6 @@ const testTiles = [
 ];
 
 describe('Gravnic', () => {
-  describe('convertTilesToGameState()', () => {
-    it('Converts the tiles into a starting game state', () => {
-      const gameState = convertTilesToGameState(testTiles);
-
-      expect(gameState).toMatchSnapshot();
-    });
-  });
-
   describe('calulateNextGameState()', () => {
     it('Should return the next game state when moving entities up', () => {
       const gameState = calulateNextGameState(convertTilesToGameState(testTiles), MOVE_UP);
