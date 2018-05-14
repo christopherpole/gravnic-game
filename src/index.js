@@ -4,9 +4,9 @@ const MOVE_DOWN = 'MOVE_DOWN';
 const MOVE_LEFT = 'MOVE_LEFT';
 
 const ENTITIES = {
-  NONE: 'ENTITY_NONE',
-  FLOOR: 'ENTITY_FLOOR',
-  BLOCK: 'ENTITY_BLOCK',
+  NONE: 'NONE',
+  FLOOR: 'FLOOR',
+  BLOCK: 'BLOCK',
 };
 
 /**
@@ -18,9 +18,24 @@ const ENTITIES = {
 const calulateNextGameState = (gameState, direction) => {
   const newGameState = JSON.parse(JSON.stringify(gameState));
   let finished = true;
+  let fading = false;
   let i;
   let j;
 
+  //  If any entities are fading then deal with them first
+  for (i = 0; i < newGameState.length; i++) {
+    for (j = 0; j < newGameState[i].length; j++) {
+      if (newGameState[i][j].movableEntity && newGameState[i][j].movableEntity.fading) {
+        newGameState[i][j].movableEntity = null;
+        fading = true;
+      }
+    }
+  }
+
+  //  If we have fading entities then don't move anything
+  if (fading) return newGameState;
+
+  //  Check if any entities can move
   switch (direction) {
     case MOVE_UP: {
       for (i = 1; i < newGameState.length; i++) {
@@ -89,7 +104,37 @@ const calulateNextGameState = (gameState, direction) => {
     default:
   }
 
-  //  No more moves to calculate if entities stopped moving
+  //  If finished moving then determine whether we should fade any blocks
+  if (finished) {
+    for (i = 0; i < newGameState.length; i++) {
+      for (j = 0; j < newGameState[i].length; j++) {
+        if (
+          newGameState[i][j].movableEntity &&
+          newGameState[i][j].movableEntity.entityId === ENTITIES.BLOCK
+        ) {
+          if (
+            (i > 0 &&
+              newGameState[i - 1][j].movableEntity &&
+              newGameState[i - 1][j].movableEntity.entityId === ENTITIES.BLOCK) ||
+            (i < newGameState.length - 1 &&
+              newGameState[i + 1][j].movableEntity &&
+              newGameState[i + 1][j].movableEntity.entityId === ENTITIES.BLOCK) ||
+            (j > 0 &&
+              newGameState[i][j - 1].movableEntity &&
+              newGameState[i][j - 1].movableEntity.entityId === ENTITIES.BLOCK) ||
+            (j < newGameState[0].length - 1 &&
+              newGameState[i][j + 1].movableEntity &&
+              newGameState[i][j + 1].movableEntity.entityId === ENTITIES.BLOCK)
+          ) {
+            newGameState[i][j].movableEntity.fading = true;
+            finished = false;
+          }
+        }
+      }
+    }
+  }
+
+  //  No more moves to calculate if entities stopped moving and no fading to do
   if (finished) {
     return false;
   }
