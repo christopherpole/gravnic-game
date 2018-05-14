@@ -1,29 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Movable entity Should be blocked by other movable entities 1`] = `
+exports[`Movable entity Should block other entities 1`] = `
 Array [
   Array [
     Array [
       Object {
-        "movableEntity": Object {
-          "entityId": "ENTITY_BLOCK",
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
           "id": 1,
-        },
-        "staticEntity": Object {
-          "entityId": "ENTITY_FLOOR",
-          "id": 2,
-        },
-      },
-    ],
-    Array [
-      Object {
-        "movableEntity": Object {
-          "entityId": "ENTITY_BLOCK",
-          "id": 4,
-        },
-        "staticEntity": Object {
-          "entityId": "ENTITY_FLOOR",
-          "id": 3,
         },
       },
     ],
@@ -31,8 +16,32 @@ Array [
       Object {
         "movableEntity": null,
         "staticEntity": Object {
-          "entityId": "ENTITY_FLOOR",
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 2,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
           "id": 5,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
         },
       },
     ],

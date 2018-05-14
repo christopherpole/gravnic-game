@@ -6,6 +6,7 @@ const MOVE_LEFT = 'MOVE_LEFT';
 const ENTITIES = {
   NONE: 'NONE',
   FLOOR: 'FLOOR',
+  GLASS: 'GLASS',
   BLOCK: 'BLOCK',
 };
 

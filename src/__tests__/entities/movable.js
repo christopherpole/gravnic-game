@@ -5,7 +5,7 @@ import {
   MOVE_LEFT,
   ENTITIES,
   changeGravityDirection,
-} from '../index';
+} from '../../index';
 
 describe('Movable entity', () => {
   let gameState;
@@ -77,5 +77,26 @@ describe('Movable entity', () => {
     expect(gameStates).toMatchSnapshot();
   });
 
-  it('Should be blocked by other movable entities');
+  it('Should block other entities', () => {
+    gameState = [
+      [{ staticEntity: { id: 1, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [
+        {
+          staticEntity: { id: 3, entityId: ENTITIES.FLOOR },
+          movableEntity: { id: 2, entityId: ENTITIES.BLOCK },
+        },
+      ],
+      [
+        {
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
+          movableEntity: { id: 4, entityId: ENTITIES.GLASS },
+        },
+      ],
+      [{ staticEntity: { id: 6, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+    ];
+
+    const gameStates = changeGravityDirection(gameState, MOVE_DOWN);
+
+    expect(gameStates).toMatchSnapshot();
+  });
 });

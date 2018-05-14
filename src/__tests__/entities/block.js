@@ -1,4 +1,4 @@
-import { MOVE_UP, ENTITIES, changeGravityDirection } from '../index';
+import { MOVE_UP, ENTITIES, changeGravityDirection } from '../../index';
 
 describe('Block entity', () => {
   it('Should match with other blocks', () => {
