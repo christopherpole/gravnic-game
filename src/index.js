@@ -10,51 +10,6 @@ const ENTITIES = {
 };
 
 /**
- * Create a Gravnic game
- * @param {Array} tiles - A 2D array of tiles to create the game state from
- * @returns {Array} A 2D array that represents the current game state
- */
-const convertTilesToGameState = tiles => {
-  const gameState = [];
-  const gridSize = Math.round(Math.sqrt(tiles.length));
-  let gridRow;
-  let currentIdCount = 1;
-
-  for (let i = 0; i < gridSize; i++) {
-    gridRow = [];
-
-    for (let j = 0; j < gridSize; j++) {
-      const entityId = tiles[i * gridSize + j].selectedTileId;
-      let staticEntity = null;
-      let movableEntity = null;
-
-      if (entityId === ENTITIES.BLOCK) {
-        movableEntity = {
-          id: currentIdCount++,
-          entityId: ENTITIES.BLOCK,
-        };
-      }
-
-      if (entityId === ENTITIES.FLOOR || entityId === ENTITIES.BLOCK) {
-        staticEntity = {
-          id: currentIdCount++,
-          entityId: ENTITIES.FLOOR,
-        };
-      }
-
-      gridRow.push({
-        staticEntity,
-        movableEntity,
-      });
-    }
-
-    gameState.push(gridRow);
-  }
-
-  return gameState;
-};
-
-/**
  * Returns the next game state based on the current direction of gravity
  * @param {Array} gameState - The current game state
  * @param {String} direction - The direction of gravity to move the entities in
@@ -171,7 +126,6 @@ module.exports = {
   MOVE_RIGHT,
   MOVE_DOWN,
   MOVE_LEFT,
-  convertTilesToGameState,
   calulateNextGameState,
   changeGravityDirection,
 };
