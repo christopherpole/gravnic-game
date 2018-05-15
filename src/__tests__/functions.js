@@ -1,13 +1,13 @@
-import { MOVE_UP, calulateNextGameState, changeGravityDirection } from '../index';
+import { MOVE_UP, ENTITIES, calulateNextGameState, changeGravityDirection } from '../index';
 
 describe('calulateNextGameState()', () => {
   let gameState = [
-    [{ staticEntity: { id: 1, entityId: 'ENTITY_FLOOR' }, movableEntity: null }],
-    [{ staticEntity: { id: 2, entityId: 'ENTITY_FLOOR' }, movableEntity: null }],
+    [{ staticEntity: { id: 1, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+    [{ staticEntity: { id: 2, entityId: ENTITIES.FLOOR }, movableEntity: null }],
     [
       {
-        staticEntity: { id: 4, entityId: 'ENTITY_FLOOR' },
-        movableEntity: { id: 3, entityId: 'ENTITY_BLOCK' },
+        staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
+        movableEntity: { id: 3, entityId: ENTITIES.BLOCK },
       },
     ],
   ];
@@ -30,12 +30,12 @@ describe('calulateNextGameState()', () => {
 
 describe('changeGravityDirection()', () => {
   const gameState = [
-    [{ staticEntity: { id: 1, entityId: 'ENTITY_FLOOR' }, movableEntity: null }],
-    [{ staticEntity: { id: 2, entityId: 'ENTITY_FLOOR' }, movableEntity: null }],
+    [{ staticEntity: { id: 1, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+    [{ staticEntity: { id: 2, entityId: ENTITIES.FLOOR }, movableEntity: null }],
     [
       {
-        staticEntity: { id: 4, entityId: 'ENTITY_FLOOR' },
-        movableEntity: { id: 3, entityId: 'ENTITY_BLOCK' },
+        staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
+        movableEntity: { id: 3, entityId: ENTITIES.BLOCK },
       },
     ],
   ];

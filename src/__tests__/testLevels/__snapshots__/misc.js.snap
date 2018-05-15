@@ -1,0 +1,1695 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Level 1 Matches the correct snapshot 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 7,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 14,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 15,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 12,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 16,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 7,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 14,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 15,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 12,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 16,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 7,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 15,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 16,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 15,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 7,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 16,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 15,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 7,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 16,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 15,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 7,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 16,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Level 2 Matches the correct snapshot 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 12,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 12,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 12,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 12,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Level 2 Matches the correct snapshot 2`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 5,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 9,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 10,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 11,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 13,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+    ],
+  ],
+]
+`;
