@@ -15,6 +15,7 @@ const ENTITIES = {
  * @param {Array} gameState - The current game state
  * @param {String} direction - The direction of gravity to move the entities in
  * @returns {Array} The updated game state
+ * @TODO - split some of this logic into smaller functions
  */
 const calulateNextGameState = (gameState, direction) => {
   const newGameState = JSON.parse(JSON.stringify(gameState));
@@ -23,7 +24,7 @@ const calulateNextGameState = (gameState, direction) => {
   let i;
   let j;
 
-  //  If any entities are fading then deal with them first
+  //  If any entities are fading then remove them
   for (i = 0; i < newGameState.length; i++) {
     for (j = 0; j < newGameState[i].length; j++) {
       if (newGameState[i][j].movableEntity && newGameState[i][j].movableEntity.fading) {
@@ -166,6 +167,43 @@ const changeGravityDirection = (gameState, direction) => {
   return moveGameStates;
 };
 
+/**
+ * Returns "true" if any of the entities in the given game are fading
+ * @param {Array} gameState - The current game state
+ * @returns {Boolean} Whether or not any of the entities within the given game state are fading
+ */
+const entitiesAreFading = gameState => {
+  for (let i = 0; i < gameState.length; i++) {
+    for (let j = 0; j < gameState[i].length; j++) {
+      if (gameState[i][j].movableEntity && gameState[i][j].movableEntity.fading) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+};
+
+/**
+ * Returns "true" if the level is complete
+ * @param {Array} gameState - The current game state
+ * @returns {Boolean} Whether or not the level is complete (i.e. no matchable blocks)
+ */
+const levelIsComplete = gameState => {
+  for (let i = 0; i < gameState.length; i++) {
+    for (let j = 0; j < gameState[i].length; j++) {
+      if (
+        gameState[i][j].movableEntity &&
+        gameState[i][j].movableEntity.entityId === ENTITIES.BLOCK
+      ) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+};
+
 module.exports = {
   ENTITIES,
   MOVE_UP,
@@ -174,4 +212,6 @@ module.exports = {
   MOVE_LEFT,
   calulateNextGameState,
   changeGravityDirection,
+  entitiesAreFading,
+  levelIsComplete,
 };
