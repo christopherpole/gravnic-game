@@ -11,6 +11,15 @@ const ENTITIES = {
   RAINBOW_BLOCK: 'RAINBOW_BLOCK',
 };
 
+const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
+
+/**
+ * Returns "true" if the given entity ID is matchable
+ * @param {String} entityId - The entity ID to test
+ * @returns {Boolean} "true" if the given entity ID is matchable and "false" otherwise
+ */
+const isMatchableEntity = entityId => MATCHABLE_ENTITIES.includes(entityId);
+
 /**
  * Returns "true" if the given movable entities can match with one another
  * @param {Object} entity1 - The first movable entity to compare
@@ -18,8 +27,8 @@ const ENTITIES = {
  * @returns {Boolean} "true" is the given entities match and "false" otherwise
  */
 const entitiesMatch = (entity1, entity2) =>
-  (entity1.entityId === ENTITIES.RAINBOW_BLOCK && entity2.entityId === ENTITIES.RAINBOW_BLOCK) ||
-  (entity1.entityId === ENTITIES.RAINBOW_BLOCK && entity2.entityId === ENTITIES.BLOCK) ||
+  (isMatchableEntity(entity1.entityId) && entity2.entityId === ENTITIES.RAINBOW_BLOCK) ||
+  (entity1.entityId === ENTITIES.RAINBOW_BLOCK && isMatchableEntity(entity2.entityId)) ||
   (entity1.entityId === ENTITIES.BLOCK && entity2.entityId === ENTITIES.RAINBOW_BLOCK) ||
   (entity1.entityId === ENTITIES.BLOCK &&
     entity2.entityId === ENTITIES.BLOCK &&
@@ -127,8 +136,7 @@ const calulateNextGameState = (gameState, direction) => {
       for (j = 0; j < newGameState[i].length; j++) {
         if (
           newGameState[i][j].movableEntity &&
-          (newGameState[i][j].movableEntity.entityId === ENTITIES.BLOCK ||
-            newGameState[i][j].movableEntity.entityId === ENTITIES.RAINBOW_BLOCK)
+          isMatchableEntity(newGameState[i][j].movableEntity.entityId)
         ) {
           if (
             (i > 0 &&
@@ -219,8 +227,7 @@ const levelIsComplete = gameState => {
     for (let j = 0; j < gameState[i].length; j++) {
       if (
         gameState[i][j].movableEntity &&
-        (gameState[i][j].movableEntity.entityId === ENTITIES.BLOCK ||
-          gameState[i][j].movableEntity.entityId === ENTITIES.RAINBOW_BLOCK)
+        isMatchableEntity(gameState[i][j].movableEntity.entityId)
       ) {
         return false;
       }
@@ -241,4 +248,5 @@ module.exports = {
   changeGravityDirection,
   entitiesAreFading,
   levelIsComplete,
+  isMatchableEntity,
 };
