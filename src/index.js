@@ -117,16 +117,23 @@ const calulateNextGameState = (gameState, direction) => {
           if (
             (i > 0 &&
               newGameState[i - 1][j].movableEntity &&
-              newGameState[i - 1][j].movableEntity.entityId === ENTITIES.BLOCK) ||
+              newGameState[i - 1][j].movableEntity.entityId === ENTITIES.BLOCK &&
+              newGameState[i][j].movableEntity.color ===
+                newGameState[i - 1][j].movableEntity.color) ||
             (i < newGameState.length - 1 &&
               newGameState[i + 1][j].movableEntity &&
-              newGameState[i + 1][j].movableEntity.entityId === ENTITIES.BLOCK) ||
+              newGameState[i + 1][j].movableEntity.entityId === ENTITIES.BLOCK &&
+              newGameState[i][j].movableEntity.color ===
+                newGameState[i + 1][j].movableEntity.color) ||
             (j > 0 &&
               newGameState[i][j - 1].movableEntity &&
-              newGameState[i][j - 1].movableEntity.entityId === ENTITIES.BLOCK) ||
+              newGameState[i][j - 1].movableEntity.entityId === ENTITIES.BLOCK &&
+              newGameState[i][j].movableEntity.color ===
+                newGameState[i][j - 1].movableEntity.color) ||
             (j < newGameState[0].length - 1 &&
               newGameState[i][j + 1].movableEntity &&
-              newGameState[i][j + 1].movableEntity.entityId === ENTITIES.BLOCK)
+              newGameState[i][j + 1].movableEntity.entityId === ENTITIES.BLOCK &&
+              newGameState[i][j].movableEntity.color === newGameState[i][j + 1].movableEntity.color)
           ) {
             newGameState[i][j].movableEntity.fading = true;
             finished = false;
