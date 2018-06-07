@@ -1,6 +1,8 @@
 import {
-  MOVE_DOWN,
+  MOVE_UP,
   MOVE_RIGHT,
+  MOVE_DOWN,
+  MOVE_LEFT,
   ENTITIES,
   changeGravityDirection,
   levelIsComplete,
@@ -194,6 +196,135 @@ describe('Level 5', () => {
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
+      ],
+    ];
+
+    gameState = changeGravityDirection(gameState, MOVE_DOWN);
+    expect(gameState).toMatchSnapshot();
+    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_RIGHT);
+    expect(gameState).toMatchSnapshot();
+    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+  });
+});
+
+describe('Level 6', () => {
+  it('Matches the correct snapshot', () => {
+    let gameState = [
+      [
+        {
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#00ff00', id: 1 },
+        },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 4, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        {
+          staticEntity: { id: 6, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 5 },
+        },
+        { staticEntity: null, movableEntity: null },
+      ],
+      [
+        { staticEntity: { id: 7, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 8, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 10, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+      ],
+      [
+        { staticEntity: { id: 11, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 12, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: { id: 13, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        {
+          staticEntity: { id: 15, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 14 },
+        },
+      ],
+      [
+        {
+          staticEntity: { id: 17, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#0000ff', id: 16 },
+        },
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: { id: 18, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        {
+          staticEntity: { id: 20, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#00ff00', id: 19 },
+        },
+      ],
+      [
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+        {
+          staticEntity: { id: 22, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#0000ff', id: 21 },
+        },
+        { staticEntity: { id: 23, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+      ],
+    ];
+
+    gameState = changeGravityDirection(gameState, MOVE_LEFT);
+    expect(gameState).toMatchSnapshot();
+    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_UP);
+    expect(gameState).toMatchSnapshot();
+    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_RIGHT);
+    expect(gameState).toMatchSnapshot();
+    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_DOWN);
+    expect(gameState).toMatchSnapshot();
+    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+  });
+});
+
+describe('Level 7', () => {
+  it('Matches the correct snapshot', () => {
+    let gameState = [
+      [
+        { staticEntity: null, movableEntity: null },
+        {
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+        },
+        {
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 3 },
+        },
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+      ],
+      [
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 6, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+      ],
+      [
+        { staticEntity: null, movableEntity: null },
+        {
+          staticEntity: { id: 8, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 7 },
+        },
+        {
+          staticEntity: { id: 10, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.GLASS, id: 9 },
+        },
+        { staticEntity: { id: 11, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 12, entityId: ENTITIES.FLOOR }, movableEntity: null },
+      ],
+      [
+        {
+          staticEntity: { id: 14, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#800080', id: 13 },
+        },
+        { staticEntity: { id: 15, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 16, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+        {
+          staticEntity: { id: 18, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 17 },
+        },
       ],
     ];
 

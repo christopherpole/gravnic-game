@@ -8,7 +8,22 @@ const ENTITIES = {
   FLOOR: 'FLOOR',
   GLASS: 'GLASS',
   BLOCK: 'BLOCK',
+  RAINBOW_BLOCK: 'RAINBOW_BLOCK',
 };
+
+/**
+ * Returns "true" if the given movable entities can match with one another
+ * @param {Object} entity1 - The first movable entity to compare
+ * @param {Object} entity2 - The second movable entity to compare
+ * @returns {Boolean} "true" is the given entities match and "false" otherwise
+ */
+const entitiesMatch = (entity1, entity2) =>
+  (entity1.entityId === ENTITIES.RAINBOW_BLOCK && entity2.entityId === ENTITIES.RAINBOW_BLOCK) ||
+  (entity1.entityId === ENTITIES.RAINBOW_BLOCK && entity2.entityId === ENTITIES.BLOCK) ||
+  (entity1.entityId === ENTITIES.BLOCK && entity2.entityId === ENTITIES.RAINBOW_BLOCK) ||
+  (entity1.entityId === ENTITIES.BLOCK &&
+    entity2.entityId === ENTITIES.BLOCK &&
+    entity1.color === entity2.color);
 
 /**
  * Returns the next game state based on the current direction of gravity
@@ -112,28 +127,31 @@ const calulateNextGameState = (gameState, direction) => {
       for (j = 0; j < newGameState[i].length; j++) {
         if (
           newGameState[i][j].movableEntity &&
-          newGameState[i][j].movableEntity.entityId === ENTITIES.BLOCK
+          (newGameState[i][j].movableEntity.entityId === ENTITIES.BLOCK ||
+            newGameState[i][j].movableEntity.entityId === ENTITIES.RAINBOW_BLOCK)
         ) {
           if (
             (i > 0 &&
               newGameState[i - 1][j].movableEntity &&
-              newGameState[i - 1][j].movableEntity.entityId === ENTITIES.BLOCK &&
-              newGameState[i][j].movableEntity.color ===
-                newGameState[i - 1][j].movableEntity.color) ||
+              entitiesMatch(
+                newGameState[i][j].movableEntity,
+                newGameState[i - 1][j].movableEntity,
+              )) ||
             (i < newGameState.length - 1 &&
               newGameState[i + 1][j].movableEntity &&
-              newGameState[i + 1][j].movableEntity.entityId === ENTITIES.BLOCK &&
-              newGameState[i][j].movableEntity.color ===
-                newGameState[i + 1][j].movableEntity.color) ||
+              entitiesMatch(
+                newGameState[i][j].movableEntity,
+                newGameState[i + 1][j].movableEntity,
+              )) ||
             (j > 0 &&
               newGameState[i][j - 1].movableEntity &&
-              newGameState[i][j - 1].movableEntity.entityId === ENTITIES.BLOCK &&
-              newGameState[i][j].movableEntity.color ===
-                newGameState[i][j - 1].movableEntity.color) ||
+              entitiesMatch(
+                newGameState[i][j].movableEntity,
+                newGameState[i][j - 1].movableEntity,
+              )) ||
             (j < newGameState[0].length - 1 &&
               newGameState[i][j + 1].movableEntity &&
-              newGameState[i][j + 1].movableEntity.entityId === ENTITIES.BLOCK &&
-              newGameState[i][j].movableEntity.color === newGameState[i][j + 1].movableEntity.color)
+              entitiesMatch(newGameState[i][j].movableEntity, newGameState[i][j + 1].movableEntity))
           ) {
             newGameState[i][j].movableEntity.fading = true;
             finished = false;
@@ -201,7 +219,8 @@ const levelIsComplete = gameState => {
     for (let j = 0; j < gameState[i].length; j++) {
       if (
         gameState[i][j].movableEntity &&
-        gameState[i][j].movableEntity.entityId === ENTITIES.BLOCK
+        (gameState[i][j].movableEntity.entityId === ENTITIES.BLOCK ||
+          gameState[i][j].movableEntity.entityId === ENTITIES.RAINBOW_BLOCK)
       ) {
         return false;
       }
@@ -218,6 +237,7 @@ module.exports = {
   MOVE_DOWN,
   MOVE_LEFT,
   calulateNextGameState,
+  entitiesMatch,
   changeGravityDirection,
   entitiesAreFading,
   levelIsComplete,
