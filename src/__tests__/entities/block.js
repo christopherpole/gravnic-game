@@ -1,19 +1,19 @@
-import { MOVE_UP, ENTITIES, changeGravityDirection } from '../../index';
+import { MOVE_UP, ENTITIES, changeGravityDirection, levelIsComplete } from '../../index';
 
 describe('Block entity', () => {
-  it('Should match with other blocks', () => {
+  it('Should match with other blocks of the same color', () => {
     const gameState = [
       [
         {
           staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 1, entityId: ENTITIES.BLOCK },
+          movableEntity: { id: 1, entityId: ENTITIES.BLOCK, color: '#ff0000' },
         },
       ],
       [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null }],
       [
         {
           staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 4, entityId: ENTITIES.BLOCK },
+          movableEntity: { id: 4, entityId: ENTITIES.BLOCK, color: '#ff0000' },
         },
       ],
     ];
@@ -21,6 +21,30 @@ describe('Block entity', () => {
     const gameStates = changeGravityDirection(gameState, MOVE_UP);
 
     expect(gameStates).toMatchSnapshot();
+    expect(levelIsComplete(gameStates[gameStates.length - 1])).toBe(true);
+  });
+
+  it('Should not match with other blocks that are not the same color', () => {
+    const gameState = [
+      [
+        {
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
+          movableEntity: { id: 1, entityId: ENTITIES.BLOCK, color: '#00ff00' },
+        },
+      ],
+      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [
+        {
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
+          movableEntity: { id: 4, entityId: ENTITIES.BLOCK, color: '#ff0000' },
+        },
+      ],
+    ];
+
+    const gameStates = changeGravityDirection(gameState, MOVE_UP);
+
+    expect(gameStates).toMatchSnapshot();
+    expect(levelIsComplete(gameStates[gameStates.length - 1])).toBe(false);
   });
 
   it('Should wait until all blocks have stopped moving before matching', () => {
