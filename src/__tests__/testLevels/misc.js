@@ -3,6 +3,7 @@ import {
   MOVE_RIGHT,
   MOVE_DOWN,
   MOVE_LEFT,
+  MOVE_NONE,
   ENTITIES,
   levelIsComplete,
   makeMoves,
@@ -26,7 +27,7 @@ describe('Level 1', () => {
       ],
     ];
 
-    const gameStates = makeMoves(gameState, [MOVE_RIGHT]);
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_RIGHT]);
     expect(gameStates).toMatchSnapshot();
     expect(
       levelIsComplete(
@@ -60,7 +61,7 @@ describe('Level 2', () => {
       ],
     ];
 
-    const gameStates = makeMoves(gameState, [MOVE_RIGHT, MOVE_DOWN]);
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_RIGHT, MOVE_DOWN]);
     expect(gameStates).toMatchSnapshot();
     expect(
       levelIsComplete(
@@ -99,7 +100,7 @@ describe('Level 3', () => {
       ],
     ];
 
-    const gameStates = makeMoves(gameState, [MOVE_DOWN]);
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_DOWN]);
     expect(gameStates).toMatchSnapshot();
     expect(
       levelIsComplete(
@@ -144,7 +145,7 @@ describe('Level 4', () => {
       ],
     ];
 
-    const gameStates = makeMoves(gameState, [MOVE_RIGHT, MOVE_DOWN]);
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_RIGHT, MOVE_DOWN]);
     expect(gameStates).toMatchSnapshot();
     expect(
       levelIsComplete(
@@ -213,7 +214,7 @@ describe('Level 5', () => {
       ],
     ];
 
-    const gameStates = makeMoves(gameState, [MOVE_DOWN, MOVE_RIGHT]);
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_DOWN, MOVE_RIGHT]);
     expect(gameStates).toMatchSnapshot();
     expect(
       levelIsComplete(
@@ -281,7 +282,7 @@ describe('Level 6', () => {
       ],
     ];
 
-    const gameStates = makeMoves(gameState, [MOVE_LEFT, MOVE_UP, MOVE_RIGHT, MOVE_DOWN]);
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_LEFT, MOVE_UP, MOVE_RIGHT, MOVE_DOWN]);
     expect(gameStates).toMatchSnapshot();
     expect(
       levelIsComplete(
@@ -342,7 +343,52 @@ describe('Level 7', () => {
       ],
     ];
 
-    const gameStates = makeMoves(gameState, [MOVE_DOWN, MOVE_RIGHT]);
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_DOWN, MOVE_RIGHT]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
+  });
+});
+
+describe('Level 8', () => {
+  it('Matches the correct snapshot', () => {
+    const gameState = [
+      [
+        { staticEntity: { id: 1, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        {
+          staticEntity: { id: 3, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 2 },
+        },
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: null, movableEntity: null },
+      ],
+      [
+        { staticEntity: null, movableEntity: null },
+        {
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+        },
+        { staticEntity: null, movableEntity: null },
+        { staticEntity: { id: 6, entityId: ENTITIES.FLOOR }, movableEntity: null },
+      ],
+      [
+        { staticEntity: null, movableEntity: null },
+        {
+          staticEntity: { id: 8, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 7 },
+        },
+        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        {
+          staticEntity: { id: 11, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 10 },
+        },
+      ],
+    ];
+
+    const gameStates = makeMoves(gameState, [MOVE_NONE, MOVE_LEFT]);
     expect(gameStates).toMatchSnapshot();
     expect(
       levelIsComplete(

@@ -1,3 +1,4 @@
+const MOVE_NONE = 'MOVE_NONE';
 const MOVE_UP = 'MOVE_UP';
 const MOVE_RIGHT = 'MOVE_RIGHT';
 const MOVE_DOWN = 'MOVE_DOWN';
@@ -181,7 +182,7 @@ const calulateNextGameState = (gameState, direction) => {
  * Changes the direction of gravity
  * @param {Array} gameState - The current game state
  * @param {String} direction - The direction new direction of gravity to move the entities in
- * @returns {Array} An array of all of the game states until entities can no longer move
+ * @returns {Array[]} An array of all of the game states until entities can no longer move
  */
 const changeGravityDirection = (gameState, direction) => {
   const moveGameStates = [];
@@ -197,14 +198,25 @@ const changeGravityDirection = (gameState, direction) => {
     }
   } while (nextGameState);
 
+  if (!moveGameStates.length) {
+    moveGameStates.push(gameState);
+  }
+
   return moveGameStates;
 };
+
+/**
+ * Processes the given state with no gravity direction
+ * @param {Array} gameState - The initial game state
+ * @returns {Array[]} An array of the initial steps when beginning with the given game state
+ */
+const getInitialGameState = gameState => changeGravityDirection(gameState, MOVE_NONE);
 
 /**
  * Make the given moves against the given game state
  * @param {Array} initialGameState - The current game state
  * @param {String[]} directions - The directions to move gravity in
- * @returns {Array} An array of all of the game states as a result of performing the given moves
+ * @returns {Array[]} An array of all of the game states as a result of performing the given moves
  */
 const makeMoves = (initialGameState, directions) => {
   const gameStates = [];
@@ -213,6 +225,7 @@ const makeMoves = (initialGameState, directions) => {
 
   directions.forEach(direction => {
     currentMove = changeGravityDirection(gameState, direction);
+
     gameState = currentMove[currentMove.length - 1];
     gameStates.push(currentMove);
   });
@@ -259,11 +272,13 @@ const levelIsComplete = gameState => {
 
 module.exports = {
   ENTITIES,
+  MOVE_NONE,
   MOVE_UP,
   MOVE_RIGHT,
   MOVE_DOWN,
   MOVE_LEFT,
   calulateNextGameState,
+  getInitialGameState,
   entitiesMatch,
   changeGravityDirection,
   entitiesAreFading,

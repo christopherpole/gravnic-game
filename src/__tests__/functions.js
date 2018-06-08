@@ -11,6 +11,7 @@ import {
   levelIsComplete,
   isMatchableEntity,
   makeMoves,
+  getInitialGameState,
 } from '../index';
 
 describe('calulateNextGameState()', () => {
@@ -52,6 +53,12 @@ describe('changeGravityDirection()', () => {
       },
     ],
   ];
+
+  it.only('Should return the given game state if the move does not result in changes', () => {
+    const gameStates = changeGravityDirection(gameState, MOVE_DOWN);
+
+    expect(gameStates).toEqual([gameState]);
+  });
 
   it('Should return an array of all game states from the move', () => {
     const gameStates = changeGravityDirection(gameState, MOVE_UP);
@@ -181,7 +188,26 @@ describe('makeMoves()', () => {
     ];
 
     const gameStates = makeMoves(gameState, [MOVE_RIGHT, MOVE_DOWN, MOVE_LEFT, MOVE_UP]);
+    expect(gameStates).toMatchSnapshot();
+  });
+});
 
+describe('getInitialGameState()', () => {
+  it.only('Should return the initial game states for the given state', () => {
+    const gameState = [
+      [
+        {
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+        },
+        {
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 3 },
+        },
+      ],
+    ];
+
+    const gameStates = getInitialGameState(gameState);
     expect(gameStates).toMatchSnapshot();
   });
 });
