@@ -4,13 +4,13 @@ import {
   MOVE_DOWN,
   MOVE_LEFT,
   ENTITIES,
-  changeGravityDirection,
   levelIsComplete,
+  makeMoves,
 } from '../../index';
 
 describe('Level 1', () => {
   it('Matches the correct snapshot', () => {
-    let gameState = [
+    const gameState = [
       [
         {
           staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
@@ -26,14 +26,19 @@ describe('Level 1', () => {
       ],
     ];
 
-    gameState = changeGravityDirection(gameState, MOVE_RIGHT);
-    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+    const gameStates = makeMoves(gameState, [MOVE_RIGHT]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
   });
 });
 
 describe('Level 2', () => {
   it('Matches the correct snapshot', () => {
-    let gameState = [
+    const gameState = [
       [
         {
           staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
@@ -55,17 +60,19 @@ describe('Level 2', () => {
       ],
     ];
 
-    gameState = changeGravityDirection(gameState, MOVE_RIGHT);
-    expect(gameState).toMatchSnapshot();
-    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_DOWN);
-    expect(gameState).toMatchSnapshot();
-    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+    const gameStates = makeMoves(gameState, [MOVE_RIGHT, MOVE_DOWN]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
   });
 });
 
 describe('Level 3', () => {
   it('Matches the correct snapshot', () => {
-    let gameState = [
+    const gameState = [
       [
         {
           staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
@@ -92,14 +99,19 @@ describe('Level 3', () => {
       ],
     ];
 
-    gameState = changeGravityDirection(gameState, MOVE_DOWN);
-    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+    const gameStates = makeMoves(gameState, [MOVE_DOWN]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
   });
 });
 
 describe('Level 4', () => {
   it('Matches the correct snapshot', () => {
-    let gameState = [
+    const gameState = [
       [
         {
           staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
@@ -132,17 +144,19 @@ describe('Level 4', () => {
       ],
     ];
 
-    gameState = changeGravityDirection(gameState, MOVE_RIGHT);
-    expect(gameState).toMatchSnapshot();
-    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_DOWN);
-    expect(gameState).toMatchSnapshot();
-    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+    const gameStates = makeMoves(gameState, [MOVE_RIGHT, MOVE_DOWN]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
   });
 });
 
 describe('Level 5', () => {
   it('Matches the correct snapshot', () => {
-    let gameState = [
+    const gameState = [
       [
         { staticEntity: null, movableEntity: null },
         {
@@ -199,17 +213,19 @@ describe('Level 5', () => {
       ],
     ];
 
-    gameState = changeGravityDirection(gameState, MOVE_DOWN);
-    expect(gameState).toMatchSnapshot();
-    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_RIGHT);
-    expect(gameState).toMatchSnapshot();
-    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+    const gameStates = makeMoves(gameState, [MOVE_DOWN, MOVE_RIGHT]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
   });
 });
 
 describe('Level 6', () => {
   it('Matches the correct snapshot', () => {
-    let gameState = [
+    const gameState = [
       [
         {
           staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
@@ -265,21 +281,19 @@ describe('Level 6', () => {
       ],
     ];
 
-    gameState = changeGravityDirection(gameState, MOVE_LEFT);
-    expect(gameState).toMatchSnapshot();
-    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_UP);
-    expect(gameState).toMatchSnapshot();
-    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_RIGHT);
-    expect(gameState).toMatchSnapshot();
-    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_DOWN);
-    expect(gameState).toMatchSnapshot();
-    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+    const gameStates = makeMoves(gameState, [MOVE_LEFT, MOVE_UP, MOVE_RIGHT, MOVE_DOWN]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
   });
 });
 
 describe('Level 7', () => {
   it('Matches the correct snapshot', () => {
-    let gameState = [
+    const gameState = [
       [
         { staticEntity: null, movableEntity: null },
         {
@@ -328,10 +342,12 @@ describe('Level 7', () => {
       ],
     ];
 
-    gameState = changeGravityDirection(gameState, MOVE_DOWN);
-    expect(gameState).toMatchSnapshot();
-    gameState = changeGravityDirection(gameState[gameState.length - 1], MOVE_RIGHT);
-    expect(gameState).toMatchSnapshot();
-    expect(levelIsComplete(gameState[gameState.length - 1])).toBe(true);
+    const gameStates = makeMoves(gameState, [MOVE_DOWN, MOVE_RIGHT]);
+    expect(gameStates).toMatchSnapshot();
+    expect(
+      levelIsComplete(
+        gameStates[gameStates.length - 1][gameStates[gameStates.length - 1].length - 1],
+      ),
+    ).toBe(true);
   });
 });

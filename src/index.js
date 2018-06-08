@@ -201,6 +201,26 @@ const changeGravityDirection = (gameState, direction) => {
 };
 
 /**
+ * Make the given moves against the given game state
+ * @param {Array} initialGameState - The current game state
+ * @param {String[]} directions - The directions to move gravity in
+ * @returns {Array} An array of all of the game states as a result of performing the given moves
+ */
+const makeMoves = (initialGameState, directions) => {
+  const gameStates = [];
+  let gameState = initialGameState;
+  let currentMove;
+
+  directions.forEach(direction => {
+    currentMove = changeGravityDirection(gameState, direction);
+    gameState = currentMove[currentMove.length - 1];
+    gameStates.push(currentMove);
+  });
+
+  return gameStates;
+};
+
+/**
  * Returns "true" if any of the entities in the given game are fading
  * @param {Array} gameState - The current game state
  * @returns {Boolean} Whether or not any of the entities within the given game state are fading
@@ -249,4 +269,5 @@ module.exports = {
   entitiesAreFading,
   levelIsComplete,
   isMatchableEntity,
+  makeMoves,
 };
