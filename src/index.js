@@ -11,8 +11,10 @@ const ENTITIES = {
   BLOCK: 'BLOCK',
   RAINBOW_BLOCK: 'RAINBOW_BLOCK',
   BLACK_HOLE: 'BLACK_HOLE',
+  STICKY_SPOT: 'STICKY_SPOT',
 };
 
+const STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT];
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
 /**
@@ -21,6 +23,13 @@ const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
  * @returns {Boolean} "true" if the given entity ID is matchable and "false" otherwise
  */
 const isMatchableEntity = entityId => MATCHABLE_ENTITIES.includes(entityId);
+
+/**
+ * Returns "true" if the given entity ID is a static entity
+ * @param {String} entityId - The entity ID to test
+ * @returns {Boolean} "true" if the given entity ID is static and "false" otherwise
+ */
+const isStaticEntity = entityId => STATIC_ENTITIES.includes(entityId);
 
 /**
  * Returns "true" if the given movable entities can match with one another
@@ -305,5 +314,6 @@ module.exports = {
   entitiesAreFading,
   levelIsComplete,
   isMatchableEntity,
+  isStaticEntity,
   makeMoves,
 };
