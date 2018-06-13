@@ -61,10 +61,16 @@ const calulateNextGameState = (gameState, direction) => {
         fading = true;
       }
 
-      //  Replace fading static entities with floors
-      if (newGameState[i][j].staticEntity && newGameState[i][j].staticEntity.fading) {
+      //  Remove shrinking movable entities entirely
+      if (newGameState[i][j].movableEntity && newGameState[i][j].movableEntity.shrinking) {
+        newGameState[i][j].movableEntity = null;
+        fading = true;
+      }
+
+      //  Replace shrinking static entities with floors
+      if (newGameState[i][j].staticEntity && newGameState[i][j].staticEntity.shrinking) {
         newGameState[i][j].staticEntity.entityId = ENTITIES.FLOOR;
-        newGameState[i][j].staticEntity.fading = false;
+        delete newGameState[i][j].staticEntity.shrinking;
         fading = true;
       }
     }
@@ -128,14 +134,14 @@ const calulateNextGameState = (gameState, direction) => {
     ({ currentTile } = tilesToProcess[i]);
     ({ nextTile } = tilesToProcess[i]);
 
-    //  Fade any entities hitting a black hole
+    //  Shrink any entities hitting a black hole
     if (
       currentTile.movableEntity &&
       nextTile.staticEntity &&
       nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE
     ) {
-      currentTile.movableEntity.fading = true;
-      nextTile.staticEntity.fading = true;
+      currentTile.movableEntity.shrinking = true;
+      nextTile.staticEntity.shrinking = true;
     }
 
     //  Move any movable entities that are able to move

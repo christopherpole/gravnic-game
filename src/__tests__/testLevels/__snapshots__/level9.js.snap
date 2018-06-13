@@ -154,13 +154,13 @@ Array [
           "movableEntity": Object {
             "color": "#FFFF00",
             "entityId": "BLOCK",
-            "fading": true,
             "id": 5,
+            "shrinking": true,
           },
           "staticEntity": Object {
             "entityId": "BLACK_HOLE",
-            "fading": true,
             "id": 8,
+            "shrinking": true,
           },
         },
         Object {
@@ -243,7 +243,6 @@ Array [
           "movableEntity": null,
           "staticEntity": Object {
             "entityId": "FLOOR",
-            "fading": false,
             "id": 8,
           },
         },
@@ -327,7 +326,6 @@ Array [
           },
           "staticEntity": Object {
             "entityId": "FLOOR",
-            "fading": false,
             "id": 8,
           },
         },
@@ -407,7 +405,6 @@ Array [
           "movableEntity": null,
           "staticEntity": Object {
             "entityId": "FLOOR",
-            "fading": false,
             "id": 8,
           },
         },
@@ -491,7 +488,6 @@ Array [
           "movableEntity": null,
           "staticEntity": Object {
             "entityId": "FLOOR",
-            "fading": false,
             "id": 8,
           },
         },
@@ -576,7 +572,6 @@ Array [
           "movableEntity": null,
           "staticEntity": Object {
             "entityId": "FLOOR",
-            "fading": false,
             "id": 8,
           },
         },
@@ -657,7 +652,6 @@ Array [
           "movableEntity": null,
           "staticEntity": Object {
             "entityId": "FLOOR",
-            "fading": false,
             "id": 8,
           },
         },
