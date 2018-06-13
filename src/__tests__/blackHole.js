@@ -1,10 +1,4 @@
-import {
-  MOVE_RIGHT,
-  MOVE_LEFT,
-  ENTITIES,
-  changeGravityDirection,
-  levelIsComplete,
-} from '../../index';
+import { MOVE_RIGHT, MOVE_LEFT, ENTITIES, changeGravityDirection, levelIsComplete } from '../index';
 
 describe('Black hole entity', () => {
   it('Should suck in any movable entities', () => {

@@ -54,7 +54,7 @@ describe('changeGravityDirection()', () => {
     ],
   ];
 
-  it.only('Should return the given game state if the move does not result in changes', () => {
+  it('Should return the given game state if the move does not result in changes', () => {
     const gameStates = changeGravityDirection(gameState, MOVE_DOWN);
 
     expect(gameStates).toEqual([gameState]);
@@ -172,7 +172,7 @@ describe('isMatchableEntity()', () => {
 });
 
 describe('makeMoves()', () => {
-  it.only('Should return an array of game states for the given moves', () => {
+  it('Should return an array of game states for the given moves', () => {
     const gameState = [
       [
         {
@@ -193,7 +193,7 @@ describe('makeMoves()', () => {
 });
 
 describe('getInitialGameState()', () => {
-  it.only('Should return the initial game states for the given state', () => {
+  it('Should return the initial game states for the given state', () => {
     const gameState = [
       [
         {

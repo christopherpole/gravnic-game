@@ -1,4 +1,4 @@
-import { MOVE_UP, ENTITIES, changeGravityDirection, levelIsComplete } from '../../index';
+import { MOVE_UP, ENTITIES, changeGravityDirection, levelIsComplete } from '../index';
 
 describe('Block entity', () => {
   it('Should match with other blocks of the same color', () => {

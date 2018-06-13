@@ -5,7 +5,7 @@ import {
   MOVE_LEFT,
   ENTITIES,
   changeGravityDirection,
-} from '../../index';
+} from '../index';
 
 describe('Movable entity', () => {
   let gameState;
