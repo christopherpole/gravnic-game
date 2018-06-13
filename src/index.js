@@ -10,6 +10,7 @@ const ENTITIES = {
   GLASS: 'GLASS',
   BLOCK: 'BLOCK',
   RAINBOW_BLOCK: 'RAINBOW_BLOCK',
+  BLACK_HOLE: 'BLACK_HOLE',
 };
 
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
@@ -48,12 +49,22 @@ const calulateNextGameState = (gameState, direction) => {
   let fading = false;
   let i;
   let j;
+  let currentTile;
+  let nextTile;
 
   //  If any entities are fading then remove them
   for (i = 0; i < newGameState.length; i++) {
     for (j = 0; j < newGameState[i].length; j++) {
+      //  Remove fading movable entities entirely
       if (newGameState[i][j].movableEntity && newGameState[i][j].movableEntity.fading) {
         newGameState[i][j].movableEntity = null;
+        fading = true;
+      }
+
+      //  Replace fading static entities with floors
+      if (newGameState[i][j].staticEntity && newGameState[i][j].staticEntity.fading) {
+        newGameState[i][j].staticEntity.entityId = ENTITIES.FLOOR;
+        newGameState[i][j].staticEntity.fading = false;
         fading = true;
       }
     }
@@ -62,20 +73,16 @@ const calulateNextGameState = (gameState, direction) => {
   //  If we have fading entities then don't move anything
   if (fading) return newGameState;
 
-  //  Check if any entities can move
+  //  Populate an array of tiles to process in the correct order depending on gravity direction
+  const tilesToProcess = [];
   switch (direction) {
     case MOVE_UP: {
       for (i = 1; i < newGameState.length; i++) {
         for (j = 0; j < newGameState[i].length; j++) {
-          if (
-            newGameState[i][j].movableEntity &&
-            !newGameState[i - 1][j].movableEntity &&
-            newGameState[i - 1][j].staticEntity
-          ) {
-            newGameState[i - 1][j].movableEntity = newGameState[i][j].movableEntity;
-            newGameState[i][j].movableEntity = null;
-            finished = false;
-          }
+          tilesToProcess.push({
+            currentTile: newGameState[i][j],
+            nextTile: newGameState[i - 1][j],
+          });
         }
       }
       break;
@@ -83,15 +90,10 @@ const calulateNextGameState = (gameState, direction) => {
     case MOVE_RIGHT: {
       for (i = 0; i < newGameState.length; i++) {
         for (j = newGameState[i].length - 2; j >= 0; j--) {
-          if (
-            newGameState[i][j].movableEntity &&
-            !newGameState[i][j + 1].movableEntity &&
-            newGameState[i][j + 1].staticEntity
-          ) {
-            newGameState[i][j + 1].movableEntity = newGameState[i][j].movableEntity;
-            newGameState[i][j].movableEntity = null;
-            finished = false;
-          }
+          tilesToProcess.push({
+            currentTile: newGameState[i][j],
+            nextTile: newGameState[i][j + 1],
+          });
         }
       }
       break;
@@ -99,15 +101,10 @@ const calulateNextGameState = (gameState, direction) => {
     case MOVE_LEFT: {
       for (i = 0; i < newGameState.length; i++) {
         for (j = 1; j < newGameState[i].length; j++) {
-          if (
-            newGameState[i][j].movableEntity &&
-            !newGameState[i][j - 1].movableEntity &&
-            newGameState[i][j - 1].staticEntity
-          ) {
-            newGameState[i][j - 1].movableEntity = newGameState[i][j].movableEntity;
-            newGameState[i][j].movableEntity = null;
-            finished = false;
-          }
+          tilesToProcess.push({
+            currentTile: newGameState[i][j],
+            nextTile: newGameState[i][j - 1],
+          });
         }
       }
       break;
@@ -115,20 +112,38 @@ const calulateNextGameState = (gameState, direction) => {
     case MOVE_DOWN: {
       for (i = newGameState.length - 2; i >= 0; i--) {
         for (j = 0; j < newGameState[i].length; j++) {
-          if (
-            newGameState[i][j].movableEntity &&
-            !newGameState[i + 1][j].movableEntity &&
-            newGameState[i + 1][j].staticEntity
-          ) {
-            newGameState[i + 1][j].movableEntity = newGameState[i][j].movableEntity;
-            newGameState[i][j].movableEntity = null;
-            finished = false;
-          }
+          tilesToProcess.push({
+            currentTile: newGameState[i][j],
+            nextTile: newGameState[i + 1][j],
+          });
         }
       }
       break;
     }
     default:
+  }
+
+  //  Go through each of the game state's tiles in order....
+  for (i = 0; i < tilesToProcess.length; i += 1) {
+    ({ currentTile } = tilesToProcess[i]);
+    ({ nextTile } = tilesToProcess[i]);
+
+    //  Fade any entities hitting a black hole
+    if (
+      currentTile.movableEntity &&
+      nextTile.staticEntity &&
+      nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE
+    ) {
+      currentTile.movableEntity.fading = true;
+      nextTile.staticEntity.fading = true;
+    }
+
+    //  Move any movable entities that are able to move
+    if (currentTile.movableEntity && !nextTile.movableEntity && nextTile.staticEntity) {
+      nextTile.movableEntity = currentTile.movableEntity;
+      currentTile.movableEntity = null;
+      finished = false;
+    }
   }
 
   //  If finished moving then determine whether we should fade any blocks
