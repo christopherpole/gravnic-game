@@ -140,12 +140,12 @@ const calulateNextGameState = (gameState, direction) => {
 
   //  Go through each of the game state's tiles in order....
   for (i = 0; i < tilesToProcess.length; i += 1) {
-    ({ currentTile } = tilesToProcess[i]);
-    ({ nextTile } = tilesToProcess[i]);
+    ({ currentTile, nextTile } = tilesToProcess[i]);
 
     //  Shrink any entities hitting a black hole
     if (
       currentTile.movableEntity &&
+      !currentTile.movableEntity.stuck &&
       nextTile.staticEntity &&
       nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE
     ) {
@@ -154,10 +154,24 @@ const calulateNextGameState = (gameState, direction) => {
     }
 
     //  Move any movable entities that are able to move
-    if (currentTile.movableEntity && !nextTile.movableEntity && nextTile.staticEntity) {
+    if (
+      currentTile.movableEntity &&
+      !nextTile.movableEntity &&
+      nextTile.staticEntity &&
+      !currentTile.movableEntity.stuck
+    ) {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
+    }
+
+    //  Stick any movable entities that land on a sticky spot
+    if (
+      nextTile.movableEntity &&
+      nextTile.staticEntity &&
+      nextTile.staticEntity.entityId === ENTITIES.STICKY_SPOT
+    ) {
+      nextTile.movableEntity.stuck = true;
     }
   }
 
