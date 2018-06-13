@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Glass block entity Should move to unoccupied tiles 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Glass block entity Should not match with other matchable entities 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 3,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "RAINBOW_BLOCK",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+]
+`;

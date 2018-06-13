@@ -1,4 +1,4 @@
-import { MOVE_RIGHT, ENTITIES, changeGravityDirection, levelIsComplete } from '../../index';
+import { MOVE_RIGHT, ENTITIES, changeGravityDirection, levelIsComplete } from '../index';
 
 describe('Rainbow block entity', () => {
   it('Should match with any colored block', () => {
