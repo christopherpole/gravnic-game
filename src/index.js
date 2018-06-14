@@ -12,9 +12,10 @@ const ENTITIES = {
   RAINBOW_BLOCK: 'RAINBOW_BLOCK',
   BLACK_HOLE: 'BLACK_HOLE',
   STICKY_SPOT: 'STICKY_SPOT',
+  LAVA: 'LAVA',
 };
 
-const STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT];
+const STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA];
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
 /**
@@ -76,8 +77,12 @@ const calulateNextGameState = (gameState, direction) => {
         fading = true;
       }
 
-      //  Replace shrinking static entities with floors
-      if (newGameState[i][j].staticEntity && newGameState[i][j].staticEntity.shrinking) {
+      //  Replace shrinking black holes with floors
+      if (
+        newGameState[i][j].staticEntity &&
+        newGameState[i][j].staticEntity.entityId === ENTITIES.BLACK_HOLE &&
+        newGameState[i][j].staticEntity.shrinking
+      ) {
         newGameState[i][j].staticEntity.entityId = ENTITIES.FLOOR;
         delete newGameState[i][j].staticEntity.shrinking;
         fading = true;
@@ -142,15 +147,16 @@ const calulateNextGameState = (gameState, direction) => {
   for (i = 0; i < tilesToProcess.length; i += 1) {
     ({ currentTile, nextTile } = tilesToProcess[i]);
 
-    //  Shrink any entities hitting a black hole
+    //  Shrink any entities hitting a black hole or lava
     if (
       currentTile.movableEntity &&
       !currentTile.movableEntity.stuck &&
       nextTile.staticEntity &&
-      nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE
+      (nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE ||
+        nextTile.staticEntity.entityId === ENTITIES.LAVA)
     ) {
       currentTile.movableEntity.shrinking = true;
-      nextTile.staticEntity.shrinking = true;
+      nextTile.staticEntity.shrinking = nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE;
     }
 
     //  Move any movable entities that are able to move

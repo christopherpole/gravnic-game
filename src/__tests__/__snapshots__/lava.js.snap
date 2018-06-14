@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lava entity Should not disappear after fading an entity 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 5,
+          "shrinking": true,
+        },
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
+          "id": 3,
+          "shrinking": true,
+        },
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+          "shrinking": true,
+        },
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Lava entity Should suck in any movable entities 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+          "shrinking": true,
+        },
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 3,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 3,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+]
+`;
