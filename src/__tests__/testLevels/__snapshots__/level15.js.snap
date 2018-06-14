@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Level 15 Matches the correct snapshot 1`] = `
+Array [
+  Array [
+    Array [
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": null,
+        },
+        Object {
+          "movableEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+            "id": 1,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 2,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": null,
+        },
+      ],
+      Array [
+        Object {
+          "movableEntity": Object {
+            "entityId": "RAINBOW_BLOCK",
+            "id": 3,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 4,
+          },
+        },
+        Object {
+          "movableEntity": Object {
+            "entityId": "SMART_BOMB",
+            "id": 6,
+            "shrinking": true,
+          },
+          "staticEntity": Object {
+            "entityId": "BLACK_HOLE",
+            "id": 5,
+            "shrinking": true,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 7,
+          },
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": null,
+        },
+        Object {
+          "movableEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+            "id": 1,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 2,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": null,
+        },
+      ],
+      Array [
+        Object {
+          "movableEntity": Object {
+            "entityId": "RAINBOW_BLOCK",
+            "id": 3,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 4,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 5,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 7,
+          },
+        },
+      ],
+    ],
+  ],
+]
+`;
