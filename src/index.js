@@ -11,8 +11,12 @@ const ENTITIES = {
   BLOCK: 'BLOCK',
   RAINBOW_BLOCK: 'RAINBOW_BLOCK',
   BLACK_HOLE: 'BLACK_HOLE',
+  STICKY_SPOT: 'STICKY_SPOT',
+  LAVA: 'LAVA',
+  SMART_BOMB: 'SMART_BOMB',
 };
 
+const STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA];
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
 /**
@@ -21,6 +25,13 @@ const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
  * @returns {Boolean} "true" if the given entity ID is matchable and "false" otherwise
  */
 const isMatchableEntity = entityId => MATCHABLE_ENTITIES.includes(entityId);
+
+/**
+ * Returns "true" if the given entity ID is a static entity
+ * @param {String} entityId - The entity ID to test
+ * @returns {Boolean} "true" if the given entity ID is static and "false" otherwise
+ */
+const isStaticEntity = entityId => STATIC_ENTITIES.includes(entityId);
 
 /**
  * Returns "true" if the given movable entities can match with one another
@@ -51,6 +62,8 @@ const calulateNextGameState = (gameState, direction) => {
   let j;
   let currentTile;
   let nextTile;
+  let currentMovableEntity;
+  let surroundingMovableEntities;
 
   //  If any entities are fading then remove them
   for (i = 0; i < newGameState.length; i++) {
@@ -61,10 +74,20 @@ const calulateNextGameState = (gameState, direction) => {
         fading = true;
       }
 
-      //  Replace fading static entities with floors
-      if (newGameState[i][j].staticEntity && newGameState[i][j].staticEntity.fading) {
+      //  Remove shrinking movable entities entirely
+      if (newGameState[i][j].movableEntity && newGameState[i][j].movableEntity.shrinking) {
+        newGameState[i][j].movableEntity = null;
+        fading = true;
+      }
+
+      //  Replace shrinking black holes with floors
+      if (
+        newGameState[i][j].staticEntity &&
+        newGameState[i][j].staticEntity.entityId === ENTITIES.BLACK_HOLE &&
+        newGameState[i][j].staticEntity.shrinking
+      ) {
         newGameState[i][j].staticEntity.entityId = ENTITIES.FLOOR;
-        newGameState[i][j].staticEntity.fading = false;
+        delete newGameState[i][j].staticEntity.shrinking;
         fading = true;
       }
     }
@@ -124,25 +147,40 @@ const calulateNextGameState = (gameState, direction) => {
   }
 
   //  Go through each of the game state's tiles in order....
-  for (i = 0; i < tilesToProcess.length; i += 1) {
-    ({ currentTile } = tilesToProcess[i]);
-    ({ nextTile } = tilesToProcess[i]);
+  for (i = 0; i < tilesToProcess.length; i++) {
+    ({ currentTile, nextTile } = tilesToProcess[i]);
 
-    //  Fade any entities hitting a black hole
+    //  Shrink any entities hitting a black hole or lava
     if (
       currentTile.movableEntity &&
+      !currentTile.movableEntity.stuck &&
       nextTile.staticEntity &&
-      nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE
+      (nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE ||
+        nextTile.staticEntity.entityId === ENTITIES.LAVA)
     ) {
-      currentTile.movableEntity.fading = true;
-      nextTile.staticEntity.fading = true;
+      currentTile.movableEntity.shrinking = true;
+      nextTile.staticEntity.shrinking = nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE;
     }
 
     //  Move any movable entities that are able to move
-    if (currentTile.movableEntity && !nextTile.movableEntity && nextTile.staticEntity) {
+    if (
+      currentTile.movableEntity &&
+      !nextTile.movableEntity &&
+      nextTile.staticEntity &&
+      !currentTile.movableEntity.stuck
+    ) {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
+    }
+
+    //  Stick any movable entities that land on a sticky spot
+    if (
+      nextTile.movableEntity &&
+      nextTile.staticEntity &&
+      nextTile.staticEntity.entityId === ENTITIES.STICKY_SPOT
+    ) {
+      nextTile.movableEntity.stuck = true;
     }
   }
 
@@ -150,34 +188,68 @@ const calulateNextGameState = (gameState, direction) => {
   if (finished) {
     for (i = 0; i < newGameState.length; i++) {
       for (j = 0; j < newGameState[i].length; j++) {
-        if (
-          newGameState[i][j].movableEntity &&
-          isMatchableEntity(newGameState[i][j].movableEntity.entityId)
-        ) {
+        //  If the current tile doesn't have a movable entity
+        //  that isn't fading then move on to the next
+        if (!newGameState[i][j].movableEntity || newGameState[i][j].movableEntity.fading) continue;
+
+        currentMovableEntity = newGameState[i][j].movableEntity;
+        surroundingMovableEntities = [];
+
+        //  Push all surrounding movable entities into an array
+        if (i > 0 && newGameState[i - 1][j].movableEntity) {
+          surroundingMovableEntities.push(newGameState[i - 1][j].movableEntity);
+        }
+        if (i < newGameState.length - 1 && newGameState[i + 1][j].movableEntity) {
+          surroundingMovableEntities.push(newGameState[i + 1][j].movableEntity);
+        }
+        if (j > 0 && newGameState[i][j - 1].movableEntity) {
+          surroundingMovableEntities.push(newGameState[i][j - 1].movableEntity);
+        }
+        if (j < newGameState[0].length - 1 && newGameState[i][j + 1].movableEntity) {
+          surroundingMovableEntities.push(newGameState[i][j + 1].movableEntity);
+        }
+
+        //  For each surrounding movable entity, check to see whether it is fading
+        for (let k = 0; k < surroundingMovableEntities.length; k++) {
+          //  If current entity is a smart bomb and a surrounding entity is matchable...
           if (
-            (i > 0 &&
-              newGameState[i - 1][j].movableEntity &&
-              entitiesMatch(
-                newGameState[i][j].movableEntity,
-                newGameState[i - 1][j].movableEntity,
-              )) ||
-            (i < newGameState.length - 1 &&
-              newGameState[i + 1][j].movableEntity &&
-              entitiesMatch(
-                newGameState[i][j].movableEntity,
-                newGameState[i + 1][j].movableEntity,
-              )) ||
-            (j > 0 &&
-              newGameState[i][j - 1].movableEntity &&
-              entitiesMatch(
-                newGameState[i][j].movableEntity,
-                newGameState[i][j - 1].movableEntity,
-              )) ||
-            (j < newGameState[0].length - 1 &&
-              newGameState[i][j + 1].movableEntity &&
-              entitiesMatch(newGameState[i][j].movableEntity, newGameState[i][j + 1].movableEntity))
+            currentMovableEntity.entityId === ENTITIES.SMART_BOMB &&
+            isMatchableEntity(surroundingMovableEntities[k].entityId)
           ) {
-            newGameState[i][j].movableEntity.fading = true;
+            currentMovableEntity.fading = true;
+
+            //  If connecting with a rainbow block then fade ALL movable entities
+            if (surroundingMovableEntities[k].entityId === ENTITIES.RAINBOW_BLOCK) {
+              for (let n = 0; n < newGameState.length; n++) {
+                for (let m = 0; m < newGameState[n].length; m++) {
+                  if (
+                    newGameState[n][m].movableEntity &&
+                    isMatchableEntity(newGameState[n][m].movableEntity.entityId)
+                  ) {
+                    newGameState[n][m].movableEntity.fading = true;
+                  }
+                }
+              }
+            } else if (surroundingMovableEntities[k].entityId === ENTITIES.BLOCK) {
+              //  Otherwise, we're connecting with a block, so fade all blocks
+              //  in the game area with the same colour
+              for (let n = 0; n < newGameState.length; n++) {
+                for (let m = 0; m < newGameState[n].length; m++) {
+                  if (
+                    newGameState[n][m].movableEntity &&
+                    newGameState[n][m].movableEntity.entityId === ENTITIES.BLOCK &&
+                    newGameState[n][m].movableEntity.color === surroundingMovableEntities[k].color
+                  ) {
+                    newGameState[n][m].movableEntity.fading = true;
+                  }
+                }
+              }
+            }
+
+            finished = false;
+          } else if (entitiesMatch(currentMovableEntity, surroundingMovableEntities[k])) {
+            currentMovableEntity.fading = true;
+            surroundingMovableEntities[k].fading = true;
             finished = false;
           }
         }
@@ -299,5 +371,6 @@ module.exports = {
   entitiesAreFading,
   levelIsComplete,
   isMatchableEntity,
+  isStaticEntity,
   makeMoves,
 };

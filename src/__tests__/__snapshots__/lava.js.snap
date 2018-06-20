@@ -1,15 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Black hole entity Should disappear after fading an entity 1`] = `
+exports[`Lava entity Should not disappear after fading an entity 1`] = `
 Array [
   Array [
     Array [
       Object {
-        "movableEntity": Object {
-          "color": "#ff0000",
-          "entityId": "BLOCK",
-          "id": 1,
-        },
+        "movableEntity": null,
         "staticEntity": Object {
           "entityId": "FLOOR",
           "id": 2,
@@ -17,32 +13,120 @@ Array [
       },
       Object {
         "movableEntity": Object {
-          "entityId": "GLASS",
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
           "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 5,
           "shrinking": true,
         },
         "staticEntity": Object {
-          "entityId": "BLACK_HOLE",
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "LAVA",
+          "id": 7,
+          "shrinking": false,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#800080",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
           "id": 3,
           "shrinking": true,
         },
-      },
-      Object {
-        "movableEntity": Object {
-          "color": "#ff0000",
-          "entityId": "BLOCK",
-          "id": 6,
-        },
         "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 5,
-        },
-      },
-      Object {
-        "movableEntity": null,
-        "staticEntity": Object {
-          "entityId": "FLOOR",
+          "entityId": "LAVA",
           "id": 7,
+          "shrinking": false,
         },
       },
     ],
@@ -50,39 +134,36 @@ Array [
   Array [
     Array [
       Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
         "movableEntity": Object {
-          "color": "#ff0000",
+          "color": "#800080",
           "entityId": "BLOCK",
           "id": 1,
         },
         "staticEntity": Object {
           "entityId": "FLOOR",
-          "id": 2,
-        },
-      },
-      Object {
-        "movableEntity": null,
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 3,
-        },
-      },
-      Object {
-        "movableEntity": Object {
-          "color": "#ff0000",
-          "entityId": "BLOCK",
           "id": 6,
         },
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 5,
-        },
       },
       Object {
         "movableEntity": null,
         "staticEntity": Object {
-          "entityId": "FLOOR",
+          "entityId": "LAVA",
           "id": 7,
+          "shrinking": false,
         },
       },
     ],
@@ -90,81 +171,37 @@ Array [
   Array [
     Array [
       Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 6,
+        },
+      },
+      Object {
         "movableEntity": Object {
-          "color": "#ff0000",
+          "color": "#800080",
           "entityId": "BLOCK",
           "id": 1,
+          "shrinking": true,
         },
         "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 2,
-        },
-      },
-      Object {
-        "movableEntity": Object {
-          "color": "#ff0000",
-          "entityId": "BLOCK",
-          "id": 6,
-        },
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 3,
-        },
-      },
-      Object {
-        "movableEntity": null,
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 5,
-        },
-      },
-      Object {
-        "movableEntity": null,
-        "staticEntity": Object {
-          "entityId": "FLOOR",
+          "entityId": "LAVA",
           "id": 7,
-        },
-      },
-    ],
-  ],
-  Array [
-    Array [
-      Object {
-        "movableEntity": Object {
-          "color": "#ff0000",
-          "entityId": "BLOCK",
-          "fading": true,
-          "id": 1,
-        },
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 2,
-        },
-      },
-      Object {
-        "movableEntity": Object {
-          "color": "#ff0000",
-          "entityId": "BLOCK",
-          "fading": true,
-          "id": 6,
-        },
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 3,
-        },
-      },
-      Object {
-        "movableEntity": null,
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 5,
-        },
-      },
-      Object {
-        "movableEntity": null,
-        "staticEntity": Object {
-          "entityId": "FLOOR",
-          "id": 7,
+          "shrinking": false,
         },
       },
     ],
@@ -182,21 +219,22 @@ Array [
         "movableEntity": null,
         "staticEntity": Object {
           "entityId": "FLOOR",
-          "id": 3,
+          "id": 4,
         },
       },
       Object {
         "movableEntity": null,
         "staticEntity": Object {
           "entityId": "FLOOR",
-          "id": 5,
+          "id": 6,
         },
       },
       Object {
         "movableEntity": null,
         "staticEntity": Object {
-          "entityId": "FLOOR",
+          "entityId": "LAVA",
           "id": 7,
+          "shrinking": false,
         },
       },
     ],
@@ -204,7 +242,7 @@ Array [
 ]
 `;
 
-exports[`Black hole entity Should suck in any movable entities 1`] = `
+exports[`Lava entity Should suck in any movable entities 1`] = `
 Array [
   Array [
     Array [
@@ -223,9 +261,9 @@ Array [
           "shrinking": true,
         },
         "staticEntity": Object {
-          "entityId": "BLACK_HOLE",
+          "entityId": "LAVA",
           "id": 3,
-          "shrinking": true,
+          "shrinking": false,
         },
       },
     ],
@@ -242,8 +280,9 @@ Array [
       Object {
         "movableEntity": null,
         "staticEntity": Object {
-          "entityId": "FLOOR",
+          "entityId": "LAVA",
           "id": 3,
+          "shrinking": false,
         },
       },
     ],
