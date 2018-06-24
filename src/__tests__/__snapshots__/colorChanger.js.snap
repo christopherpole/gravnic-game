@@ -1,0 +1,712 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Color changer entity Should change the entity of a passing matchable entity 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Color changer entity Should change the entity of a passing matchable entity multiple times 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FF8C00",
+          "entityId": "BLOCK",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Color changer entity Should change the entity of a passing matchable entity multiple times 2`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FFFF00",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FF8C00",
+          "entityId": "BLOCK",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FF8C00",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FF8C00",
+          "entityId": "BLOCK",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FF8C00",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#FF8C00",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 3,
+          "targetEntity": Object {
+            "color": "#FFFF00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 4,
+          "targetEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "color": "#FF8C00",
+            "entityId": "BLOCK",
+          },
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Color changer entity Should not change the entity of non-matchable passing movable entities 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "entityId": "RAINBOW_BLOCK",
+          },
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "SMART_BOMB",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": null,
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "COLOR_CHANGER",
+          "id": 5,
+          "targetEntity": Object {
+            "entityId": "RAINBOW_BLOCK",
+          },
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "SMART_BOMB",
+          "id": 6,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 7,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "entityId": "GLASS",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 8,
+        },
+      },
+    ],
+  ],
+]
+`;

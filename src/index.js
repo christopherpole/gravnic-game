@@ -14,9 +14,16 @@ const ENTITIES = {
   STICKY_SPOT: 'STICKY_SPOT',
   LAVA: 'LAVA',
   SMART_BOMB: 'SMART_BOMB',
+  COLOR_CHANGER: 'COLOR_CHANGER',
 };
 
-const STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA];
+const STATIC_ENTITIES = [
+  ENTITIES.FLOOR,
+  ENTITIES.BLACK_HOLE,
+  ENTITIES.STICKY_SPOT,
+  ENTITIES.LAVA,
+  ENTITIES.COLOR_CHANGER,
+];
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
 /**
@@ -160,6 +167,20 @@ const calulateNextGameState = (gameState, direction) => {
     ) {
       currentTile.movableEntity.shrinking = true;
       nextTile.staticEntity.shrinking = nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE;
+    }
+
+    //  Change any matchable entities coming into contact with a color changer
+    if (
+      currentTile.movableEntity &&
+      !nextTile.movableEntity &&
+      isMatchableEntity(currentTile.movableEntity.entityId) &&
+      nextTile.staticEntity &&
+      nextTile.staticEntity.entityId === ENTITIES.COLOR_CHANGER
+    ) {
+      currentTile.movableEntity = Object.assign(
+        currentTile.movableEntity,
+        nextTile.staticEntity.targetEntity,
+      );
     }
 
     //  Move any movable entities that are able to move
