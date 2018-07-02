@@ -3,6 +3,7 @@ const MOVE_UP = 'MOVE_UP';
 const MOVE_RIGHT = 'MOVE_RIGHT';
 const MOVE_DOWN = 'MOVE_DOWN';
 const MOVE_LEFT = 'MOVE_LEFT';
+const MAX_GAME_STATES = 100;
 
 const ENTITIES = {
   NONE: 'NONE',
@@ -15,6 +16,7 @@ const ENTITIES = {
   LAVA: 'LAVA',
   SMART_BOMB: 'SMART_BOMB',
   COLOR_CHANGER: 'COLOR_CHANGER',
+  GRAVITY_CHANGER: 'GRAVITY_CHANGER',
 };
 
 const STATIC_ENTITIES = [
@@ -23,6 +25,7 @@ const STATIC_ENTITIES = [
   ENTITIES.STICKY_SPOT,
   ENTITIES.LAVA,
   ENTITIES.COLOR_CHANGER,
+  ENTITIES.GRAVITY_CHANGER,
 ];
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
@@ -71,6 +74,7 @@ const calulateNextGameState = (gameState, direction) => {
   let nextTile;
   let currentMovableEntity;
   let surroundingMovableEntities;
+  let newDirection = direction;
 
   //  If any entities are fading then remove them
   for (i = 0; i < newGameState.length; i++) {
@@ -101,7 +105,12 @@ const calulateNextGameState = (gameState, direction) => {
   }
 
   //  If we have fading entities then don't move anything
-  if (fading) return newGameState;
+  if (fading) {
+    return {
+      direction: newDirection,
+      gameState: newGameState,
+    };
+  }
 
   //  Populate an array of tiles to process in the correct order depending on gravity direction
   const tilesToProcess = [];
@@ -151,6 +160,21 @@ const calulateNextGameState = (gameState, direction) => {
       break;
     }
     default:
+  }
+
+  //  Go through each of the game state's tiles to check for gravity changer entities...
+  for (i = 0; i < tilesToProcess.length; i++) {
+    ({ currentTile, nextTile } = tilesToProcess[i]);
+
+    if (
+      currentTile.movableEntity &&
+      !currentTile.movableEntity.stuck &&
+      nextTile.staticEntity &&
+      nextTile.staticEntity.entityId === ENTITIES.GRAVITY_CHANGER &&
+      direction !== nextTile.staticEntity.direction
+    ) {
+      newDirection = nextTile.staticEntity.direction;
+    }
   }
 
   //  Go through each of the game state's tiles in order....
@@ -279,11 +303,10 @@ const calulateNextGameState = (gameState, direction) => {
   }
 
   //  No more moves to calculate if entities stopped moving and no fading to do
-  if (finished) {
-    return false;
-  }
-
-  return newGameState;
+  return {
+    direction: newDirection,
+    gameState: finished ? false : newGameState,
+  };
 };
 
 /**
@@ -296,15 +319,17 @@ const changeGravityDirection = (gameState, direction) => {
   const moveGameStates = [];
   let nextGameState;
   let currentGameState = gameState;
+  let currentDirection = direction;
 
   do {
-    nextGameState = calulateNextGameState(currentGameState, direction);
+    nextGameState = calulateNextGameState(currentGameState, currentDirection);
+    currentDirection = nextGameState.direction;
 
-    if (nextGameState) {
-      currentGameState = nextGameState;
+    if (nextGameState.gameState) {
+      currentGameState = nextGameState.gameState;
       moveGameStates.push(currentGameState);
     }
-  } while (nextGameState);
+  } while (nextGameState.gameState && moveGameStates.length < MAX_GAME_STATES);
 
   if (!moveGameStates.length) {
     moveGameStates.push(gameState);
@@ -380,6 +405,7 @@ const levelIsComplete = gameState => {
 
 module.exports = {
   ENTITIES,
+  MAX_GAME_STATES,
   MOVE_NONE,
   MOVE_UP,
   MOVE_RIGHT,

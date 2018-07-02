@@ -30,16 +30,16 @@ describe('calulateNextGameState()', () => {
   it('Should return the next game state', () => {
     //  Move 1
     gameState = calulateNextGameState(gameState, MOVE_UP);
-    expect(gameState).toMatchSnapshot();
+    expect(gameState.gameState).toMatchSnapshot();
 
     //  Move 2
-    gameState = calulateNextGameState(gameState, MOVE_UP);
-    expect(gameState).toMatchSnapshot();
+    gameState = calulateNextGameState(gameState.gameState, MOVE_UP);
+    expect(gameState.gameState).toMatchSnapshot();
   });
 
   it('Should return false if the entities cannot move any further', () => {
-    gameState = calulateNextGameState(gameState, MOVE_UP);
-    expect(gameState).toBe(false);
+    gameState = calulateNextGameState(gameState.gameState, MOVE_UP);
+    expect(gameState.gameState).toBe(false);
   });
 });
 

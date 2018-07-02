@@ -5,6 +5,7 @@ var MOVE_UP = 'MOVE_UP';
 var MOVE_RIGHT = 'MOVE_RIGHT';
 var MOVE_DOWN = 'MOVE_DOWN';
 var MOVE_LEFT = 'MOVE_LEFT';
+var MAX_GAME_STATES = 100;
 
 var ENTITIES = {
   NONE: 'NONE',
@@ -16,10 +17,11 @@ var ENTITIES = {
   STICKY_SPOT: 'STICKY_SPOT',
   LAVA: 'LAVA',
   SMART_BOMB: 'SMART_BOMB',
-  COLOR_CHANGER: 'COLOR_CHANGER'
+  COLOR_CHANGER: 'COLOR_CHANGER',
+  GRAVITY_CHANGER: 'GRAVITY_CHANGER'
 };
 
-var STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA, ENTITIES.COLOR_CHANGER];
+var STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA, ENTITIES.COLOR_CHANGER, ENTITIES.GRAVITY_CHANGER];
 var MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
 /**
@@ -67,6 +69,7 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
   var nextTile = void 0;
   var currentMovableEntity = void 0;
   var surroundingMovableEntities = void 0;
+  var newDirection = direction;
 
   //  If any entities are fading then remove them
   for (i = 0; i < newGameState.length; i++) {
@@ -93,7 +96,12 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
   }
 
   //  If we have fading entities then don't move anything
-  if (fading) return newGameState;
+  if (fading) {
+    return {
+      direction: newDirection,
+      gameState: newGameState
+    };
+  }
 
   //  Populate an array of tiles to process in the correct order depending on gravity direction
   var tilesToProcess = [];
@@ -149,13 +157,25 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
     default:
   }
 
+  //  Go through each of the game state's tiles to check for gravity changer entities...
+  for (i = 0; i < tilesToProcess.length; i++) {
+    var _tilesToProcess$i = tilesToProcess[i];
+    currentTile = _tilesToProcess$i.currentTile;
+    nextTile = _tilesToProcess$i.nextTile;
+
+
+    if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && nextTile.staticEntity.entityId === ENTITIES.GRAVITY_CHANGER && direction !== nextTile.staticEntity.direction) {
+      newDirection = nextTile.staticEntity.direction;
+    }
+  }
+
   //  Go through each of the game state's tiles in order....
   for (i = 0; i < tilesToProcess.length; i++) {
 
     //  Shrink any entities hitting a black hole or lava
-    var _tilesToProcess$i = tilesToProcess[i];
-    currentTile = _tilesToProcess$i.currentTile;
-    nextTile = _tilesToProcess$i.nextTile;
+    var _tilesToProcess$i2 = tilesToProcess[i];
+    currentTile = _tilesToProcess$i2.currentTile;
+    nextTile = _tilesToProcess$i2.nextTile;
     if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && (nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE || nextTile.staticEntity.entityId === ENTITIES.LAVA)) {
       currentTile.movableEntity.shrinking = true;
       nextTile.staticEntity.shrinking = nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE;
@@ -243,11 +263,10 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
   }
 
   //  No more moves to calculate if entities stopped moving and no fading to do
-  if (finished) {
-    return false;
-  }
-
-  return newGameState;
+  return {
+    direction: newDirection,
+    gameState: finished ? false : newGameState
+  };
 };
 
 /**
@@ -260,15 +279,17 @@ var changeGravityDirection = function changeGravityDirection(gameState, directio
   var moveGameStates = [];
   var nextGameState = void 0;
   var currentGameState = gameState;
+  var currentDirection = direction;
 
   do {
-    nextGameState = calulateNextGameState(currentGameState, direction);
+    nextGameState = calulateNextGameState(currentGameState, currentDirection);
+    currentDirection = nextGameState.direction;
 
-    if (nextGameState) {
-      currentGameState = nextGameState;
+    if (nextGameState.gameState) {
+      currentGameState = nextGameState.gameState;
       moveGameStates.push(currentGameState);
     }
-  } while (nextGameState);
+  } while (nextGameState.gameState && moveGameStates.length < MAX_GAME_STATES);
 
   if (!moveGameStates.length) {
     moveGameStates.push(gameState);
@@ -343,6 +364,7 @@ var levelIsComplete = function levelIsComplete(gameState) {
 
 module.exports = {
   ENTITIES: ENTITIES,
+  MAX_GAME_STATES: MAX_GAME_STATES,
   MOVE_NONE: MOVE_NONE,
   MOVE_UP: MOVE_UP,
   MOVE_RIGHT: MOVE_RIGHT,
