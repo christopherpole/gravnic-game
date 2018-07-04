@@ -17,6 +17,7 @@ const ENTITIES = {
   SMART_BOMB: 'SMART_BOMB',
   COLOR_CHANGER: 'COLOR_CHANGER',
   GRAVITY_CHANGER: 'GRAVITY_CHANGER',
+  BARRIER: 'BARRIER',
 };
 
 const STATIC_ENTITIES = [
@@ -26,6 +27,7 @@ const STATIC_ENTITIES = [
   ENTITIES.LAVA,
   ENTITIES.COLOR_CHANGER,
   ENTITIES.GRAVITY_CHANGER,
+  ENTITIES.BARRIER,
 ];
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
@@ -212,6 +214,11 @@ const calulateNextGameState = (gameState, direction) => {
       currentTile.movableEntity &&
       !nextTile.movableEntity &&
       nextTile.staticEntity &&
+      (nextTile.staticEntity.entityId === ENTITIES.BARRIER
+        ? nextTile.staticEntity.powered
+          ? nextTile.staticEntity.color === currentTile.movableEntity.color
+          : true
+        : true) &&
       !currentTile.movableEntity.stuck
     ) {
       nextTile.movableEntity = currentTile.movableEntity;

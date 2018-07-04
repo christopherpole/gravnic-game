@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Barrier entity Colorled barrier entity Should allow movable entities with a matching color to pass even when powered 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": true,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": true,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": true,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Barrier entity Colorled barrier entity Should block all movable entities from passing when powered 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "color": "#0000ff",
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": true,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Barrier entity Colorless barrier entity Should allow movable entities to pass when unpowered 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": false,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": false,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": false,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Barrier entity Colorless barrier entity Should block all movable entities from passing when powered 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "BARRIER",
+          "id": 3,
+          "powered": true,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "id": 4,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 5,
+        },
+      },
+    ],
+  ],
+]
+`;

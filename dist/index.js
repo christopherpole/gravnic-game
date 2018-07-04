@@ -18,10 +18,11 @@ var ENTITIES = {
   LAVA: 'LAVA',
   SMART_BOMB: 'SMART_BOMB',
   COLOR_CHANGER: 'COLOR_CHANGER',
-  GRAVITY_CHANGER: 'GRAVITY_CHANGER'
+  GRAVITY_CHANGER: 'GRAVITY_CHANGER',
+  BARRIER: 'BARRIER'
 };
 
-var STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA, ENTITIES.COLOR_CHANGER, ENTITIES.GRAVITY_CHANGER];
+var STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA, ENTITIES.COLOR_CHANGER, ENTITIES.GRAVITY_CHANGER, ENTITIES.BARRIER];
 var MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
 /**
@@ -187,7 +188,7 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
     }
 
     //  Move any movable entities that are able to move
-    if (currentTile.movableEntity && !nextTile.movableEntity && nextTile.staticEntity && !currentTile.movableEntity.stuck) {
+    if (currentTile.movableEntity && !nextTile.movableEntity && nextTile.staticEntity && (nextTile.staticEntity.entityId === ENTITIES.BARRIER ? nextTile.staticEntity.powered ? nextTile.staticEntity.color === currentTile.movableEntity.color : true : true) && !currentTile.movableEntity.stuck) {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
