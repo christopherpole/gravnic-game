@@ -54,6 +54,43 @@ var entitiesMatch = function entitiesMatch(entity1, entity2) {
 };
 
 /**
+ * Returns "true" if there is a movable entity on the first given tile that can move to the
+ * second given tile
+ * @param {Object} currentTile - The current tile
+ * @param {Object} nextTile - The tile to move to
+ * @returns {Boolean} "true" if current tile has a movable entity that can move onto the target tile
+ */
+var movableEntityCanMove = function movableEntityCanMove(currentTile, nextTile) {
+  //  If the next tile doesn't have a static entity of any sort then return "false"
+  if (!nextTile.staticEntity) {
+    return false;
+  }
+
+  //  If the current tile doesn't have a movable entity then return "false"
+  if (!currentTile.movableEntity) {
+    return false;
+  }
+
+  //  If the next tile has a movable entity then return "false"
+  if (nextTile.movableEntity) {
+    return false;
+  }
+
+  //  If the current tile's movable entity if stuck then return "false"
+  if (currentTile.movableEntity.stuck) {
+    return false;
+  }
+
+  //  Return "false" if the next tile has a powered barrier who color does
+  //  not match the current tile's movable entity
+  if (nextTile.staticEntity.entityId === ENTITIES.BARRIER && nextTile.staticEntity.powered && nextTile.staticEntity.color !== currentTile.movableEntity.color) {
+    return false;
+  }
+
+  return true;
+};
+
+/**
  * Returns the next game state based on the current direction of gravity
  * @param {Array} gameState - The current game state
  * @param {String} direction - The direction of gravity to move the entities in
@@ -158,25 +195,18 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
     default:
   }
 
-  //  Go through each of the game state's tiles to check for gravity changer entities...
-  for (i = 0; i < tilesToProcess.length; i++) {
-    var _tilesToProcess$i = tilesToProcess[i];
-    currentTile = _tilesToProcess$i.currentTile;
-    nextTile = _tilesToProcess$i.nextTile;
-
-
-    if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && nextTile.staticEntity.entityId === ENTITIES.GRAVITY_CHANGER && direction !== nextTile.staticEntity.direction) {
-      newDirection = nextTile.staticEntity.direction;
-    }
-  }
-
   //  Go through each of the game state's tiles in order....
   for (i = 0; i < tilesToProcess.length; i++) {
 
+    //  Check for gravity changer entities
+    var _tilesToProcess$i = tilesToProcess[i];
+    currentTile = _tilesToProcess$i.currentTile;
+    nextTile = _tilesToProcess$i.nextTile;
+    if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && nextTile.staticEntity.entityId === ENTITIES.GRAVITY_CHANGER && direction !== nextTile.staticEntity.direction) {
+      newDirection = nextTile.staticEntity.direction;
+    }
+
     //  Shrink any entities hitting a black hole or lava
-    var _tilesToProcess$i2 = tilesToProcess[i];
-    currentTile = _tilesToProcess$i2.currentTile;
-    nextTile = _tilesToProcess$i2.nextTile;
     if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && (nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE || nextTile.staticEntity.entityId === ENTITIES.LAVA)) {
       currentTile.movableEntity.shrinking = true;
       nextTile.staticEntity.shrinking = nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE;
@@ -188,7 +218,7 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
     }
 
     //  Move any movable entities that are able to move
-    if (currentTile.movableEntity && !nextTile.movableEntity && nextTile.staticEntity && (nextTile.staticEntity.entityId === ENTITIES.BARRIER ? nextTile.staticEntity.powered ? nextTile.staticEntity.color === currentTile.movableEntity.color : true : true) && !currentTile.movableEntity.stuck) {
+    if (movableEntityCanMove(currentTile, nextTile)) {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
@@ -379,5 +409,6 @@ module.exports = {
   levelIsComplete: levelIsComplete,
   isMatchableEntity: isMatchableEntity,
   isStaticEntity: isStaticEntity,
-  makeMoves: makeMoves
+  makeMoves: makeMoves,
+  movableEntityCanMove: movableEntityCanMove
 };

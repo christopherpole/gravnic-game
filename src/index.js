@@ -60,6 +60,47 @@ const entitiesMatch = (entity1, entity2) =>
     entity1.color === entity2.color);
 
 /**
+ * Returns "true" if there is a movable entity on the first given tile that can move to the
+ * second given tile
+ * @param {Object} currentTile - The current tile
+ * @param {Object} nextTile - The tile to move to
+ * @returns {Boolean} "true" if current tile has a movable entity that can move onto the target tile
+ */
+const movableEntityCanMove = (currentTile, nextTile) => {
+  //  If the next tile doesn't have a static entity of any sort then return "false"
+  if (!nextTile.staticEntity) {
+    return false;
+  }
+
+  //  If the current tile doesn't have a movable entity then return "false"
+  if (!currentTile.movableEntity) {
+    return false;
+  }
+
+  //  If the next tile has a movable entity then return "false"
+  if (nextTile.movableEntity) {
+    return false;
+  }
+
+  //  If the current tile's movable entity if stuck then return "false"
+  if (currentTile.movableEntity.stuck) {
+    return false;
+  }
+
+  //  Return "false" if the next tile has a powered barrier who color does
+  //  not match the current tile's movable entity
+  if (
+    nextTile.staticEntity.entityId === ENTITIES.BARRIER &&
+    nextTile.staticEntity.powered &&
+    nextTile.staticEntity.color !== currentTile.movableEntity.color
+  ) {
+    return false;
+  }
+
+  return true;
+};
+
+/**
  * Returns the next game state based on the current direction of gravity
  * @param {Array} gameState - The current game state
  * @param {String} direction - The direction of gravity to move the entities in
@@ -164,10 +205,11 @@ const calulateNextGameState = (gameState, direction) => {
     default:
   }
 
-  //  Go through each of the game state's tiles to check for gravity changer entities...
+  //  Go through each of the game state's tiles in order....
   for (i = 0; i < tilesToProcess.length; i++) {
     ({ currentTile, nextTile } = tilesToProcess[i]);
 
+    //  Check for gravity changer entities
     if (
       currentTile.movableEntity &&
       !currentTile.movableEntity.stuck &&
@@ -177,11 +219,6 @@ const calulateNextGameState = (gameState, direction) => {
     ) {
       newDirection = nextTile.staticEntity.direction;
     }
-  }
-
-  //  Go through each of the game state's tiles in order....
-  for (i = 0; i < tilesToProcess.length; i++) {
-    ({ currentTile, nextTile } = tilesToProcess[i]);
 
     //  Shrink any entities hitting a black hole or lava
     if (
@@ -210,17 +247,7 @@ const calulateNextGameState = (gameState, direction) => {
     }
 
     //  Move any movable entities that are able to move
-    if (
-      currentTile.movableEntity &&
-      !nextTile.movableEntity &&
-      nextTile.staticEntity &&
-      (nextTile.staticEntity.entityId === ENTITIES.BARRIER
-        ? nextTile.staticEntity.powered
-          ? nextTile.staticEntity.color === currentTile.movableEntity.color
-          : true
-        : true) &&
-      !currentTile.movableEntity.stuck
-    ) {
+    if (movableEntityCanMove(currentTile, nextTile)) {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
@@ -427,4 +454,5 @@ module.exports = {
   isMatchableEntity,
   isStaticEntity,
   makeMoves,
+  movableEntityCanMove,
 };
