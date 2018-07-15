@@ -20,7 +20,7 @@ install_yarn: &install_yarn
   command: npm install --global yarn
 
 jobs:
-  build:
+  test_build:
     machine: true
     environment:
       ENVIRONMENT: ci
@@ -54,3 +54,32 @@ jobs:
           command: yarn build
       - persist_to_workspace:
           root: ~/gravnic-game
+          paths: .
+
+  deploy:
+    machine: true
+    environment:
+      ENVIRONMENT: ci
+      TERM: xterm-color
+    working_directory: ~/gravnic-game
+    steps:
+      - attach_workspace:
+          at: ~/gravnic-game
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - test_build
+      - deploy:
+          requires:
+            - test_build
+          filters:
+            branches:
+              only: master
