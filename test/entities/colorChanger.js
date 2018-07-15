@@ -5,7 +5,7 @@ import {
   ENTITIES,
   changeGravityDirection,
   levelIsComplete,
-} from '../src/index';
+} from '../../src/';
 
 describe('Color changer entity', () => {
   it('Should change the entity of a passing matchable entity', () => {

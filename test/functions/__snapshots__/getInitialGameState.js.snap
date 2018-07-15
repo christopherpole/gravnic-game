@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getInitialGameState() Should return the initial game states for the given state 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 1,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": Object {
+          "color": "#ff0000",
+          "entityId": "BLOCK",
+          "fading": true,
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+    ],
+  ],
+]
+`;

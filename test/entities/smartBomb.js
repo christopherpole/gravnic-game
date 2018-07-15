@@ -1,4 +1,4 @@
-import { MOVE_DOWN, ENTITIES, changeGravityDirection, levelIsComplete } from '../src/index';
+import { MOVE_DOWN, ENTITIES, changeGravityDirection, levelIsComplete } from '../../src/';
 
 describe('Smart bomb entity', () => {
   it('Should fade all blocks the same colour with a coloured block it comes into contact with', () => {

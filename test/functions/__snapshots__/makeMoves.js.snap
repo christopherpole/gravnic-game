@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`makeMoves() Should return an array of game states for the given moves 1`] = `
+Array [
+  Array [
+    Array [
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 2,
+          },
+        },
+        Object {
+          "movableEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+            "id": 1,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 3,
+          },
+        },
+      ],
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 4,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 5,
+          },
+        },
+      ],
+    ],
+  ],
+  Array [
+    Array [
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 2,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 3,
+          },
+        },
+      ],
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 4,
+          },
+        },
+        Object {
+          "movableEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+            "id": 1,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 5,
+          },
+        },
+      ],
+    ],
+  ],
+  Array [
+    Array [
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 2,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 3,
+          },
+        },
+      ],
+      Array [
+        Object {
+          "movableEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+            "id": 1,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 4,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 5,
+          },
+        },
+      ],
+    ],
+  ],
+  Array [
+    Array [
+      Array [
+        Object {
+          "movableEntity": Object {
+            "color": "#ff0000",
+            "entityId": "BLOCK",
+            "id": 1,
+          },
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 2,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 3,
+          },
+        },
+      ],
+      Array [
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 4,
+          },
+        },
+        Object {
+          "movableEntity": null,
+          "staticEntity": Object {
+            "entityId": "FLOOR",
+            "id": 5,
+          },
+        },
+      ],
+    ],
+  ],
+]
+`;

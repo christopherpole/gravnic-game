@@ -1,4 +1,4 @@
-import { MOVE_DOWN, ENTITIES, changeGravityDirection, levelIsComplete } from '../src/index';
+import { MOVE_DOWN, ENTITIES, changeGravityDirection, levelIsComplete } from '../../src/';
 
 describe('Glass block entity', () => {
   it('Should move to unoccupied tiles', () => {

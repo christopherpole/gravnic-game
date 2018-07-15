@@ -4,7 +4,7 @@ import {
   ENTITIES,
   changeGravityDirection,
   levelIsComplete,
-} from '../src/index';
+} from '../../src/';
 
 describe('Sticky spot entity', () => {
   it('Should stick any movable entities passing over in place', () => {

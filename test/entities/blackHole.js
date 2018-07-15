@@ -4,7 +4,7 @@ import {
   ENTITIES,
   changeGravityDirection,
   levelIsComplete,
-} from '../src/index';
+} from '../../src/';
 
 describe('Black hole entity', () => {
   it('Should suck in any movable entities', () => {

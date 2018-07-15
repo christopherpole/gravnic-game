@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calulateNextGameState() Should return the next game state 1`] = `
+Array [
+  Array [
+    Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 1,
+      },
+    },
+  ],
+  Array [
+    Object {
+      "movableEntity": Object {
+        "entityId": "BLOCK",
+        "id": 3,
+      },
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+  ],
+  Array [
+    Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+  ],
+]
+`;
+
+exports[`calulateNextGameState() Should return the next game state 2`] = `
+Array [
+  Array [
+    Object {
+      "movableEntity": Object {
+        "entityId": "BLOCK",
+        "id": 3,
+      },
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 1,
+      },
+    },
+  ],
+  Array [
+    Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+  ],
+  Array [
+    Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+  ],
+]
+`;

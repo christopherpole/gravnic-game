@@ -9,7 +9,12 @@ describe('Level 22', () => {
           movableEntity: { entityId: ENTITIES.BLOCK, color: '#0000FF', id: 1 },
         },
         {
-          staticEntity: { entityId: ENTITIES.BARRIER, color: '#008000', powered: false, id: 3 },
+          staticEntity: {
+            entityId: ENTITIES.BARRIER,
+            color: '#008000',
+            powered: false,
+            id: 3,
+          },
           movableEntity: null,
         },
         {
@@ -41,11 +46,21 @@ describe('Level 22', () => {
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.BARRIER, color: '#ff0000', powered: true, id: 14 },
+          staticEntity: {
+            entityId: ENTITIES.BARRIER,
+            color: '#ff0000',
+            powered: true,
+            id: 14,
+          },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.BARRIER, color: '#8B4513', powered: true, id: 15 },
+          staticEntity: {
+            entityId: ENTITIES.BARRIER,
+            color: '#8B4513',
+            powered: true,
+            id: 15,
+          },
           movableEntity: null,
         },
         { staticEntity: null, movableEntity: null },

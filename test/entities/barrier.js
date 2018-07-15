@@ -1,4 +1,4 @@
-import { MOVE_RIGHT, ENTITIES, changeGravityDirection, levelIsComplete } from '../src/index';
+import { MOVE_RIGHT, ENTITIES, changeGravityDirection, levelIsComplete } from '../../src/';
 
 describe('Barrier entity', () => {
   describe('Colorless barrier entity', () => {
