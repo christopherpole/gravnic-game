@@ -17,6 +17,7 @@ const ENTITIES = {
   SMART_BOMB: 'SMART_BOMB',
   COLOR_CHANGER: 'COLOR_CHANGER',
   GRAVITY_CHANGER: 'GRAVITY_CHANGER',
+  BARRIER: 'BARRIER',
 };
 
 const STATIC_ENTITIES = [
@@ -26,6 +27,7 @@ const STATIC_ENTITIES = [
   ENTITIES.LAVA,
   ENTITIES.COLOR_CHANGER,
   ENTITIES.GRAVITY_CHANGER,
+  ENTITIES.BARRIER,
 ];
 const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
@@ -37,11 +39,45 @@ const MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 const isMatchableEntity = entityId => MATCHABLE_ENTITIES.includes(entityId);
 
 /**
- * Returns "true" if the given entity ID is a static entity
- * @param {String} entityId - The entity ID to test
- * @returns {Boolean} "true" if the given entity ID is static and "false" otherwise
+ * Returns "true" if there is a movable entity on the first given tile that can move to the
+ * second given tile
+ * @param {Object} currentTile - The current tile
+ * @param {Object} nextTile - The tile to move to
+ * @returns {Boolean} "true" if current tile has a movable entity that can move onto the target tile
  */
-const isStaticEntity = entityId => STATIC_ENTITIES.includes(entityId);
+const movableEntityCanMove = (currentTile, nextTile) => {
+  //  If the next tile doesn't have a static entity of any sort then return "false"
+  if (!nextTile.staticEntity) {
+    return false;
+  }
+
+  //  If the current tile doesn't have a movable entity then return "false"
+  if (!currentTile.movableEntity) {
+    return false;
+  }
+
+  //  If the next tile has a movable entity then return "false"
+  if (nextTile.movableEntity) {
+    return false;
+  }
+
+  //  If the current tile's movable entity if stuck then return "false"
+  if (currentTile.movableEntity.stuck) {
+    return false;
+  }
+
+  //  Return "false" if the next tile has a powered barrier who color does
+  //  not match the current tile's movable entity
+  if (
+    nextTile.staticEntity.entityId === ENTITIES.BARRIER &&
+    nextTile.staticEntity.powered &&
+    nextTile.staticEntity.color !== currentTile.movableEntity.color
+  ) {
+    return false;
+  }
+
+  return true;
+};
 
 /**
  * Returns "true" if the given movable entities can match with one another
@@ -162,10 +198,11 @@ const calulateNextGameState = (gameState, direction) => {
     default:
   }
 
-  //  Go through each of the game state's tiles to check for gravity changer entities...
+  //  Go through each of the game state's tiles in order....
   for (i = 0; i < tilesToProcess.length; i++) {
     ({ currentTile, nextTile } = tilesToProcess[i]);
 
+    //  Check for gravity changer entities
     if (
       currentTile.movableEntity &&
       !currentTile.movableEntity.stuck &&
@@ -175,11 +212,6 @@ const calulateNextGameState = (gameState, direction) => {
     ) {
       newDirection = nextTile.staticEntity.direction;
     }
-  }
-
-  //  Go through each of the game state's tiles in order....
-  for (i = 0; i < tilesToProcess.length; i++) {
-    ({ currentTile, nextTile } = tilesToProcess[i]);
 
     //  Shrink any entities hitting a black hole or lava
     if (
@@ -208,12 +240,7 @@ const calulateNextGameState = (gameState, direction) => {
     }
 
     //  Move any movable entities that are able to move
-    if (
-      currentTile.movableEntity &&
-      !nextTile.movableEntity &&
-      nextTile.staticEntity &&
-      !currentTile.movableEntity.stuck
-    ) {
+    if (movableEntityCanMove(currentTile, nextTile)) {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
@@ -339,11 +366,55 @@ const changeGravityDirection = (gameState, direction) => {
 };
 
 /**
+ * Returns "true" if any of the entities in the given game are fading
+ * @param {Array} gameState - The current game state
+ * @returns {Boolean} Whether or not any of the entities within the given game state are fading
+ */
+const entitiesAreFading = gameState => {
+  for (let i = 0; i < gameState.length; i++) {
+    for (let j = 0; j < gameState[i].length; j++) {
+      if (gameState[i][j].movableEntity && gameState[i][j].movableEntity.fading) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+};
+
+/**
  * Processes the given state with no gravity direction
  * @param {Array} gameState - The initial game state
  * @returns {Array[]} An array of the initial steps when beginning with the given game state
  */
 const getInitialGameState = gameState => changeGravityDirection(gameState, MOVE_NONE);
+
+/**
+ * Returns "true" if the given entity ID is a static entity
+ * @param {String} entityId - The entity ID to test
+ * @returns {Boolean} "true" if the given entity ID is static and "false" otherwise
+ */
+const isStaticEntity = entityId => STATIC_ENTITIES.includes(entityId);
+
+/**
+ * Returns "true" if the level is complete
+ * @param {Array} gameState - The current game state
+ * @returns {Boolean} Whether or not the level is complete (i.e. no matchable blocks)
+ */
+const levelIsComplete = gameState => {
+  for (let i = 0; i < gameState.length; i++) {
+    for (let j = 0; j < gameState[i].length; j++) {
+      if (
+        gameState[i][j].movableEntity &&
+        isMatchableEntity(gameState[i][j].movableEntity.entityId)
+      ) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+};
 
 /**
  * Make the given moves against the given game state
@@ -366,43 +437,6 @@ const makeMoves = (initialGameState, directions) => {
   return gameStates;
 };
 
-/**
- * Returns "true" if any of the entities in the given game are fading
- * @param {Array} gameState - The current game state
- * @returns {Boolean} Whether or not any of the entities within the given game state are fading
- */
-const entitiesAreFading = gameState => {
-  for (let i = 0; i < gameState.length; i++) {
-    for (let j = 0; j < gameState[i].length; j++) {
-      if (gameState[i][j].movableEntity && gameState[i][j].movableEntity.fading) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-};
-
-/**
- * Returns "true" if the level is complete
- * @param {Array} gameState - The current game state
- * @returns {Boolean} Whether or not the level is complete (i.e. no matchable blocks)
- */
-const levelIsComplete = gameState => {
-  for (let i = 0; i < gameState.length; i++) {
-    for (let j = 0; j < gameState[i].length; j++) {
-      if (
-        gameState[i][j].movableEntity &&
-        isMatchableEntity(gameState[i][j].movableEntity.entityId)
-      ) {
-        return false;
-      }
-    }
-  }
-
-  return true;
-};
-
 module.exports = {
   ENTITIES,
   MAX_GAME_STATES,
@@ -412,12 +446,13 @@ module.exports = {
   MOVE_DOWN,
   MOVE_LEFT,
   calulateNextGameState,
-  getInitialGameState,
-  entitiesMatch,
   changeGravityDirection,
   entitiesAreFading,
-  levelIsComplete,
+  entitiesMatch,
+  getInitialGameState,
   isMatchableEntity,
   isStaticEntity,
+  levelIsComplete,
   makeMoves,
+  movableEntityCanMove,
 };

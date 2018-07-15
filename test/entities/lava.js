@@ -1,4 +1,4 @@
-import { MOVE_RIGHT, ENTITIES, changeGravityDirection, levelIsComplete } from '../src/index';
+import { MOVE_RIGHT, ENTITIES, changeGravityDirection, levelIsComplete } from '../../src/';
 
 describe('Lava entity', () => {
   it('Should suck in any movable entities', () => {

@@ -7,7 +7,7 @@ import {
   ENTITIES,
   changeGravityDirection,
   levelIsComplete,
-} from '../src/index';
+} from '../../src/';
 
 describe('Gravity changer entity', () => {
   it('Should let movable entities traveling in the same direction move across it', () => {

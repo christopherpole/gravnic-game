@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`changeGravityDirection() Should return an array of all game states from the move 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 1,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "movableEntity": Object {
+          "entityId": "BLOCK",
+          "id": 3,
+        },
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 1,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 2,
+        },
+      },
+    ],
+    Array [
+      Object {
+        "movableEntity": null,
+        "staticEntity": Object {
+          "entityId": "FLOOR",
+          "id": 4,
+        },
+      },
+    ],
+  ],
+]
+`;

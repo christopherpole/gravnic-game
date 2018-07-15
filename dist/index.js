@@ -18,10 +18,11 @@ var ENTITIES = {
   LAVA: 'LAVA',
   SMART_BOMB: 'SMART_BOMB',
   COLOR_CHANGER: 'COLOR_CHANGER',
-  GRAVITY_CHANGER: 'GRAVITY_CHANGER'
+  GRAVITY_CHANGER: 'GRAVITY_CHANGER',
+  BARRIER: 'BARRIER'
 };
 
-var STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA, ENTITIES.COLOR_CHANGER, ENTITIES.GRAVITY_CHANGER];
+var STATIC_ENTITIES = [ENTITIES.FLOOR, ENTITIES.BLACK_HOLE, ENTITIES.STICKY_SPOT, ENTITIES.LAVA, ENTITIES.COLOR_CHANGER, ENTITIES.GRAVITY_CHANGER, ENTITIES.BARRIER];
 var MATCHABLE_ENTITIES = [ENTITIES.BLOCK, ENTITIES.RAINBOW_BLOCK];
 
 /**
@@ -34,12 +35,40 @@ var isMatchableEntity = function isMatchableEntity(entityId) {
 };
 
 /**
- * Returns "true" if the given entity ID is a static entity
- * @param {String} entityId - The entity ID to test
- * @returns {Boolean} "true" if the given entity ID is static and "false" otherwise
+ * Returns "true" if there is a movable entity on the first given tile that can move to the
+ * second given tile
+ * @param {Object} currentTile - The current tile
+ * @param {Object} nextTile - The tile to move to
+ * @returns {Boolean} "true" if current tile has a movable entity that can move onto the target tile
  */
-var isStaticEntity = function isStaticEntity(entityId) {
-  return STATIC_ENTITIES.includes(entityId);
+var movableEntityCanMove = function movableEntityCanMove(currentTile, nextTile) {
+  //  If the next tile doesn't have a static entity of any sort then return "false"
+  if (!nextTile.staticEntity) {
+    return false;
+  }
+
+  //  If the current tile doesn't have a movable entity then return "false"
+  if (!currentTile.movableEntity) {
+    return false;
+  }
+
+  //  If the next tile has a movable entity then return "false"
+  if (nextTile.movableEntity) {
+    return false;
+  }
+
+  //  If the current tile's movable entity if stuck then return "false"
+  if (currentTile.movableEntity.stuck) {
+    return false;
+  }
+
+  //  Return "false" if the next tile has a powered barrier who color does
+  //  not match the current tile's movable entity
+  if (nextTile.staticEntity.entityId === ENTITIES.BARRIER && nextTile.staticEntity.powered && nextTile.staticEntity.color !== currentTile.movableEntity.color) {
+    return false;
+  }
+
+  return true;
 };
 
 /**
@@ -157,25 +186,18 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
     default:
   }
 
-  //  Go through each of the game state's tiles to check for gravity changer entities...
-  for (i = 0; i < tilesToProcess.length; i++) {
-    var _tilesToProcess$i = tilesToProcess[i];
-    currentTile = _tilesToProcess$i.currentTile;
-    nextTile = _tilesToProcess$i.nextTile;
-
-
-    if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && nextTile.staticEntity.entityId === ENTITIES.GRAVITY_CHANGER && direction !== nextTile.staticEntity.direction) {
-      newDirection = nextTile.staticEntity.direction;
-    }
-  }
-
   //  Go through each of the game state's tiles in order....
   for (i = 0; i < tilesToProcess.length; i++) {
 
+    //  Check for gravity changer entities
+    var _tilesToProcess$i = tilesToProcess[i];
+    currentTile = _tilesToProcess$i.currentTile;
+    nextTile = _tilesToProcess$i.nextTile;
+    if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && nextTile.staticEntity.entityId === ENTITIES.GRAVITY_CHANGER && direction !== nextTile.staticEntity.direction) {
+      newDirection = nextTile.staticEntity.direction;
+    }
+
     //  Shrink any entities hitting a black hole or lava
-    var _tilesToProcess$i2 = tilesToProcess[i];
-    currentTile = _tilesToProcess$i2.currentTile;
-    nextTile = _tilesToProcess$i2.nextTile;
     if (currentTile.movableEntity && !currentTile.movableEntity.stuck && nextTile.staticEntity && (nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE || nextTile.staticEntity.entityId === ENTITIES.LAVA)) {
       currentTile.movableEntity.shrinking = true;
       nextTile.staticEntity.shrinking = nextTile.staticEntity.entityId === ENTITIES.BLACK_HOLE;
@@ -187,7 +209,7 @@ var calulateNextGameState = function calulateNextGameState(gameState, direction)
     }
 
     //  Move any movable entities that are able to move
-    if (currentTile.movableEntity && !nextTile.movableEntity && nextTile.staticEntity && !currentTile.movableEntity.stuck) {
+    if (movableEntityCanMove(currentTile, nextTile)) {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
@@ -299,12 +321,55 @@ var changeGravityDirection = function changeGravityDirection(gameState, directio
 };
 
 /**
+ * Returns "true" if any of the entities in the given game are fading
+ * @param {Array} gameState - The current game state
+ * @returns {Boolean} Whether or not any of the entities within the given game state are fading
+ */
+var entitiesAreFading = function entitiesAreFading(gameState) {
+  for (var i = 0; i < gameState.length; i++) {
+    for (var j = 0; j < gameState[i].length; j++) {
+      if (gameState[i][j].movableEntity && gameState[i][j].movableEntity.fading) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+};
+
+/**
  * Processes the given state with no gravity direction
  * @param {Array} gameState - The initial game state
  * @returns {Array[]} An array of the initial steps when beginning with the given game state
  */
 var getInitialGameState = function getInitialGameState(gameState) {
   return changeGravityDirection(gameState, MOVE_NONE);
+};
+
+/**
+ * Returns "true" if the given entity ID is a static entity
+ * @param {String} entityId - The entity ID to test
+ * @returns {Boolean} "true" if the given entity ID is static and "false" otherwise
+ */
+var isStaticEntity = function isStaticEntity(entityId) {
+  return STATIC_ENTITIES.includes(entityId);
+};
+
+/**
+ * Returns "true" if the level is complete
+ * @param {Array} gameState - The current game state
+ * @returns {Boolean} Whether or not the level is complete (i.e. no matchable blocks)
+ */
+var levelIsComplete = function levelIsComplete(gameState) {
+  for (var i = 0; i < gameState.length; i++) {
+    for (var j = 0; j < gameState[i].length; j++) {
+      if (gameState[i][j].movableEntity && isMatchableEntity(gameState[i][j].movableEntity.entityId)) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 };
 
 /**
@@ -328,40 +393,6 @@ var makeMoves = function makeMoves(initialGameState, directions) {
   return gameStates;
 };
 
-/**
- * Returns "true" if any of the entities in the given game are fading
- * @param {Array} gameState - The current game state
- * @returns {Boolean} Whether or not any of the entities within the given game state are fading
- */
-var entitiesAreFading = function entitiesAreFading(gameState) {
-  for (var i = 0; i < gameState.length; i++) {
-    for (var j = 0; j < gameState[i].length; j++) {
-      if (gameState[i][j].movableEntity && gameState[i][j].movableEntity.fading) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-};
-
-/**
- * Returns "true" if the level is complete
- * @param {Array} gameState - The current game state
- * @returns {Boolean} Whether or not the level is complete (i.e. no matchable blocks)
- */
-var levelIsComplete = function levelIsComplete(gameState) {
-  for (var i = 0; i < gameState.length; i++) {
-    for (var j = 0; j < gameState[i].length; j++) {
-      if (gameState[i][j].movableEntity && isMatchableEntity(gameState[i][j].movableEntity.entityId)) {
-        return false;
-      }
-    }
-  }
-
-  return true;
-};
-
 module.exports = {
   ENTITIES: ENTITIES,
   MAX_GAME_STATES: MAX_GAME_STATES,
@@ -371,12 +402,13 @@ module.exports = {
   MOVE_DOWN: MOVE_DOWN,
   MOVE_LEFT: MOVE_LEFT,
   calulateNextGameState: calulateNextGameState,
-  getInitialGameState: getInitialGameState,
-  entitiesMatch: entitiesMatch,
   changeGravityDirection: changeGravityDirection,
   entitiesAreFading: entitiesAreFading,
-  levelIsComplete: levelIsComplete,
+  entitiesMatch: entitiesMatch,
+  getInitialGameState: getInitialGameState,
   isMatchableEntity: isMatchableEntity,
   isStaticEntity: isStaticEntity,
-  makeMoves: makeMoves
+  levelIsComplete: levelIsComplete,
+  makeMoves: makeMoves,
+  movableEntityCanMove: movableEntityCanMove
 };
