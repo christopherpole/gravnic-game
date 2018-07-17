@@ -94,23 +94,15 @@ const entitiesMatch = (entity1, entity2) =>
     entity1.color === entity2.color);
 
 /**
- * Returns the next game state based on the current direction of gravity
+ * Removes any fading entities from the given game state
  * @param {Array} gameState - The current game state
- * @param {String} direction - The direction of gravity to move the entities in
- * @returns {Array} The updated game state
- * @TODO - split some of this logic into smaller functions
+ * @returns {Array} The updated game state with the fading entities removed
  */
-const calulateNextGameState = (gameState, direction) => {
+const removeFadingEntities = gameState => {
   const newGameState = JSON.parse(JSON.stringify(gameState));
-  let finished = true;
   let fading = false;
   let i;
   let j;
-  let currentTile;
-  let nextTile;
-  let currentMovableEntity;
-  let surroundingMovableEntities;
-  let newDirection = direction;
 
   //  If any entities are fading then remove them
   for (i = 0; i < newGameState.length; i++) {
@@ -140,8 +132,34 @@ const calulateNextGameState = (gameState, direction) => {
     }
   }
 
+  return {
+    fading,
+    gameState: newGameState,
+  };
+};
+
+/**
+ * Returns the next game state based on the current direction of gravity
+ * @param {Array} gameState - The current game state
+ * @param {String} direction - The direction of gravity to move the entities in
+ * @returns {Array} The updated game state
+ */
+const calulateNextGameState = (gameState, direction) => {
+  let newGameState = JSON.parse(JSON.stringify(gameState));
+  let finished = true;
+  let i;
+  let j;
+  let currentTile;
+  let nextTile;
+  let currentMovableEntity;
+  let surroundingMovableEntities;
+  let newDirection = direction;
+
+  const removeFadingEntitiesResult = removeFadingEntities(gameState);
+  newGameState = removeFadingEntitiesResult.gameState;
+
   //  If we have fading entities then don't move anything
-  if (fading) {
+  if (removeFadingEntitiesResult.fading) {
     return {
       direction: newDirection,
       gameState: newGameState,
@@ -446,6 +464,7 @@ module.exports = {
   MOVE_DOWN,
   MOVE_LEFT,
   calulateNextGameState,
+  removeFadingEntities,
   changeGravityDirection,
   entitiesAreFading,
   entitiesMatch,
