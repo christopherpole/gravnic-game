@@ -16,6 +16,12 @@ const ENTITIES = {
   GLASS: {
     id: 'GLASS',
   },
+  BOMB: {
+    id: 'BOMB',
+  },
+  CRATE: {
+    id: 'CRATE',
+  },
   BLOCK: {
     id: 'BLOCK',
     matchable: true,
