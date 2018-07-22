@@ -5,14 +5,14 @@ describe('Smart bomb entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
-        { staticEntity: { id: 4, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
+        { staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 6, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 5 },
+          staticEntity: { id: 6, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 5 },
         },
       ],
       [
@@ -23,8 +23,8 @@ describe('Smart bomb entity', () => {
       ],
       [
         {
-          staticEntity: { id: 8, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 7 },
+          staticEntity: { id: 8, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 7 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
@@ -34,8 +34,8 @@ describe('Smart bomb entity', () => {
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 10, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 9 },
+          staticEntity: { id: 10, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 9 },
         },
         { staticEntity: null, movableEntity: null },
       ],
@@ -51,23 +51,23 @@ describe('Smart bomb entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 1 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 4 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
@@ -78,8 +78,8 @@ describe('Smart bomb entity', () => {
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 6 },
         },
       ],
     ];
@@ -96,8 +96,8 @@ describe('Smart bomb entity', () => {
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 1 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
@@ -105,24 +105,24 @@ describe('Smart bomb entity', () => {
       [
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 4 },
         },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 6 },
         },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 9, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 8 },
+          staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 8 },
         },
       ],
       [
@@ -134,18 +134,18 @@ describe('Smart bomb entity', () => {
       ],
       [
         {
-          staticEntity: { id: 11, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FF8C00', id: 10 },
+          staticEntity: { id: 11, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FF8C00', id: 10 },
         },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 13, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#8B4513', id: 12 },
+          staticEntity: { id: 13, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#8B4513', id: 12 },
         },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 15, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 14 },
+          staticEntity: { id: 15, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 14 },
         },
       ],
     ];
@@ -160,26 +160,26 @@ describe('Smart bomb entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 1 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 4 },
         },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 6 },
         },
       ],
     ];
@@ -195,29 +195,29 @@ describe('Smart bomb entity', () => {
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 1 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 3 },
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 3 },
         },
-        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 6 },
         },
       ],
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 9, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 8 },
+          staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 8 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },

@@ -2,12 +2,12 @@ import { ENTITIES, entitiesAreFading } from '../../src/';
 
 describe('entitiesAreFading()', () => {
   const gameState = [
-    [{ staticEntity: { id: 1, entityId: ENTITIES.FLOOR }, movableEntity: null }],
-    [{ staticEntity: { id: 2, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+    [{ staticEntity: { id: 1, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
+    [{ staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
     [
       {
-        staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-        movableEntity: { id: 3, entityId: ENTITIES.BLOCK },
+        staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+        movableEntity: { id: 3, entityId: ENTITIES.BLOCK.id },
       },
     ],
   ];
@@ -23,8 +23,8 @@ describe('entitiesAreFading()', () => {
       ...gameState,
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 6, entityId: ENTITIES.BLOCK, fading: true },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 6, entityId: ENTITIES.BLOCK.id, fading: true },
         },
       ],
     ]);

@@ -6,29 +6,29 @@ describe('Level 17', () => {
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 1 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 3 },
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 3 },
         },
-        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 6 },
         },
       ],
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 9, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 8 },
+          staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 8 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },

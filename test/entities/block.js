@@ -5,15 +5,15 @@ describe('Block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 1, entityId: ENTITIES.BLOCK, color: '#ff0000' },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 1, entityId: ENTITIES.BLOCK.id, color: '#ff0000' },
         },
       ],
-      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 4, entityId: ENTITIES.BLOCK, color: '#ff0000' },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 4, entityId: ENTITIES.BLOCK.id, color: '#ff0000' },
         },
       ],
     ];
@@ -28,15 +28,15 @@ describe('Block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 1, entityId: ENTITIES.BLOCK, color: '#00ff00' },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 1, entityId: ENTITIES.BLOCK.id, color: '#00ff00' },
         },
       ],
-      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 4, entityId: ENTITIES.BLOCK, color: '#ff0000' },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 4, entityId: ENTITIES.BLOCK.id, color: '#ff0000' },
         },
       ],
     ];
@@ -51,25 +51,25 @@ describe('Block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 1, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 1, entityId: ENTITIES.BLOCK.id },
         },
       ],
-      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 4, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 4, entityId: ENTITIES.BLOCK.id },
         },
       ],
-      [{ staticEntity: { id: 6, entityId: ENTITIES.FLOOR }, movableEntity: null }],
-      [{ staticEntity: { id: 7, entityId: ENTITIES.FLOOR }, movableEntity: null }],
-      [{ staticEntity: { id: 8, entityId: ENTITIES.FLOOR }, movableEntity: null }],
-      [{ staticEntity: { id: 9, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [{ staticEntity: { id: 6, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
+      [{ staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
+      [{ staticEntity: { id: 8, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
+      [{ staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
       [
         {
-          staticEntity: { id: 11, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 10, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 11, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 10, entityId: ENTITIES.BLOCK.id },
         },
       ],
     ];
@@ -83,33 +83,33 @@ describe('Block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 1, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 1, entityId: ENTITIES.BLOCK.id },
         },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 3, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 3, entityId: ENTITIES.BLOCK.id },
         },
       ],
       [
-        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 6, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 6, entityId: ENTITIES.BLOCK.id },
         },
-        { staticEntity: { id: 8, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 8, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
       ],
       [
-        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR }, movableEntity: null },
-        { staticEntity: { id: 10, entityId: ENTITIES.FLOOR }, movableEntity: null },
-        { staticEntity: { id: 11, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
+        { staticEntity: { id: 10, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
+        { staticEntity: { id: 11, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
       ],
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 13, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 12, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 13, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 12, entityId: ENTITIES.BLOCK.id },
         },
         { staticEntity: null, movableEntity: null },
       ],

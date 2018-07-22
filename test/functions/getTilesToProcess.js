@@ -6,19 +6,19 @@ describe('getTilesToProcess()', () => {
   beforeEach(() => {
     gameState = [
       [
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 1 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 2 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 1 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 4 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 5 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 6 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 6 }, movableEntity: null },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 7 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 8 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 9 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 7 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 8 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 9 }, movableEntity: null },
       ],
     ];
   });

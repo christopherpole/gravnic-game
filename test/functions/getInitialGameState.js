@@ -5,12 +5,12 @@ describe('getInitialGameState()', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         {
-          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 3 },
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 3 },
         },
       ],
     ];

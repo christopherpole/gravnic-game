@@ -12,20 +12,20 @@ describe('Color changer entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         {
           staticEntity: {
-            entityId: ENTITIES.COLOR_CHANGER,
-            targetEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000' },
+            entityId: ENTITIES.COLOR_CHANGER.id,
+            targetEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000' },
             id: 3,
           },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 5 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#800080', id: 4 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#800080', id: 4 },
         },
       ],
     ];
@@ -40,36 +40,36 @@ describe('Color changer entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         {
           staticEntity: {
-            entityId: ENTITIES.COLOR_CHANGER,
-            targetEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00' },
+            entityId: ENTITIES.COLOR_CHANGER.id,
+            targetEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00' },
             id: 3,
           },
           movableEntity: null,
         },
         {
           staticEntity: {
-            entityId: ENTITIES.COLOR_CHANGER,
-            targetEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000' },
+            entityId: ENTITIES.COLOR_CHANGER.id,
+            targetEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000' },
             id: 4,
           },
           movableEntity: null,
         },
         {
           staticEntity: {
-            entityId: ENTITIES.COLOR_CHANGER,
-            targetEntity: { entityId: ENTITIES.BLOCK, color: '#FF8C00' },
+            entityId: ENTITIES.COLOR_CHANGER.id,
+            targetEntity: { entityId: ENTITIES.BLOCK.id, color: '#FF8C00' },
             id: 5,
           },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 7 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 6 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 7 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 6 },
         },
       ],
     ];
@@ -87,20 +87,20 @@ describe('Color changer entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 4 },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 3 },
         },
       ],
       [
         { staticEntity: null, movableEntity: null },
         {
           staticEntity: {
-            entityId: ENTITIES.COLOR_CHANGER,
-            targetEntity: { entityId: ENTITIES.RAINBOW_BLOCK },
+            entityId: ENTITIES.COLOR_CHANGER.id,
+            targetEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id },
             id: 5,
           },
           movableEntity: null,
@@ -108,10 +108,10 @@ describe('Color changer entity', () => {
       ],
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 7 },
-          movableEntity: { entityId: ENTITIES.SMART_BOMB, id: 6 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 7 },
+          movableEntity: { entityId: ENTITIES.SMART_BOMB.id, id: 6 },
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 8 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 8 }, movableEntity: null },
       ],
     ];
 

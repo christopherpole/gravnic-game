@@ -5,18 +5,18 @@ describe('Rainbow block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 4 },
         },
-        { staticEntity: { id: 6, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 6, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 8, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 7 },
+          staticEntity: { id: 8, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 7 },
         },
       ],
     ];
@@ -31,13 +31,13 @@ describe('Rainbow block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 4 },
         },
       ],
     ];
@@ -52,13 +52,13 @@ describe('Rainbow block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 4 },
         },
       ],
     ];

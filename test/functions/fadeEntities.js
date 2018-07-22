@@ -5,12 +5,12 @@ describe('fadeEntities()', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 4 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FF8C00', id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FF8C00', id: 3 },
         },
       ],
     ];
@@ -26,30 +26,30 @@ describe('fadeEntities()', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 4 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 3 },
         },
       ],
     ];
     const expectedGameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
           movableEntity: {
-            entityId: ENTITIES.BLOCK,
+            entityId: ENTITIES.BLOCK.id,
             color: '#ff0000',
             fading: true,
             id: 1,
           },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 4 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 },
           movableEntity: {
-            entityId: ENTITIES.BLOCK,
+            entityId: ENTITIES.BLOCK.id,
             color: '#ff0000',
             fading: true,
             id: 3,

@@ -5,23 +5,23 @@ describe('Level 14', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 1 },
         },
       ],
-      [{ staticEntity: { id: 3, entityId: ENTITIES.BLACK_HOLE }, movableEntity: null }],
-      [{ staticEntity: { id: 4, entityId: ENTITIES.LAVA }, movableEntity: null }],
-      [{ staticEntity: { id: 5, entityId: ENTITIES.BLACK_HOLE }, movableEntity: null }],
+      [{ staticEntity: { id: 3, entityId: ENTITIES.BLACK_HOLE.id }, movableEntity: null }],
+      [{ staticEntity: { id: 4, entityId: ENTITIES.LAVA.id }, movableEntity: null }],
+      [{ staticEntity: { id: 5, entityId: ENTITIES.BLACK_HOLE.id }, movableEntity: null }],
       [
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 6 },
         },
       ],
       [
         {
-          staticEntity: { id: 9, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 8 },
+          staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 8 },
         },
       ],
     ];
