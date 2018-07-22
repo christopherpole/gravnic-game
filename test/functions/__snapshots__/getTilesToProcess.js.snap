@@ -1,0 +1,405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getTilesToProcess() Returns the correct array with gravity moving down 1`] = `
+Array [
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 7,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 8,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 6,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 9,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 1,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 3,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 6,
+      },
+    },
+  },
+]
+`;
+
+exports[`getTilesToProcess() Returns the correct array with gravity moving left 1`] = `
+Array [
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 1,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 3,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 6,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 8,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 7,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 9,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 8,
+      },
+    },
+  },
+]
+`;
+
+exports[`getTilesToProcess() Returns the correct array with gravity moving right 1`] = `
+Array [
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 3,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 1,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 6,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 8,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 9,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 7,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 8,
+      },
+    },
+  },
+]
+`;
+
+exports[`getTilesToProcess() Returns the correct array with gravity moving up 1`] = `
+Array [
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 1,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 2,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 6,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 3,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 7,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 4,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 8,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 5,
+      },
+    },
+  },
+  Object {
+    "currentTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 9,
+      },
+    },
+    "nextTile": Object {
+      "movableEntity": null,
+      "staticEntity": Object {
+        "entityId": "FLOOR",
+        "id": 6,
+      },
+    },
+  },
+]
+`;

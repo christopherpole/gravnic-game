@@ -139,6 +139,158 @@ const removeFadingEntities = gameState => {
 };
 
 /**
+ * Fade any matching entities in the given game state
+ * @param {Array} gameState - The game state to check
+ * @returns {Object} The new game state and whether or not any entities are matching
+ */
+const fadeEntities = gameState => {
+  const newGameState = JSON.parse(JSON.stringify(gameState));
+  let i;
+  let j;
+  let currentMovableEntity;
+  let surroundingMovableEntities;
+  let finished = true;
+
+  for (i = 0; i < newGameState.length; i++) {
+    for (j = 0; j < newGameState[i].length; j++) {
+      //  If the current tile doesn't have a movable entity
+      //  that isn't fading then move on to the next
+      if (!newGameState[i][j].movableEntity || newGameState[i][j].movableEntity.fading) continue;
+
+      currentMovableEntity = newGameState[i][j].movableEntity;
+      surroundingMovableEntities = [];
+
+      //  Push all surrounding movable entities into an array
+      if (i > 0 && newGameState[i - 1][j].movableEntity) {
+        surroundingMovableEntities.push(newGameState[i - 1][j].movableEntity);
+      }
+      if (i < newGameState.length - 1 && newGameState[i + 1][j].movableEntity) {
+        surroundingMovableEntities.push(newGameState[i + 1][j].movableEntity);
+      }
+      if (j > 0 && newGameState[i][j - 1].movableEntity) {
+        surroundingMovableEntities.push(newGameState[i][j - 1].movableEntity);
+      }
+      if (j < newGameState[0].length - 1 && newGameState[i][j + 1].movableEntity) {
+        surroundingMovableEntities.push(newGameState[i][j + 1].movableEntity);
+      }
+
+      //  For each surrounding movable entity, check to see whether it is fading
+      for (let k = 0; k < surroundingMovableEntities.length; k++) {
+        //  If current entity is a smart bomb and a surrounding entity is matchable...
+        if (
+          currentMovableEntity.entityId === ENTITIES.SMART_BOMB &&
+          isMatchableEntity(surroundingMovableEntities[k].entityId)
+        ) {
+          currentMovableEntity.fading = true;
+
+          //  If connecting with a rainbow block then fade ALL movable entities
+          if (surroundingMovableEntities[k].entityId === ENTITIES.RAINBOW_BLOCK) {
+            for (let n = 0; n < newGameState.length; n++) {
+              for (let m = 0; m < newGameState[n].length; m++) {
+                if (
+                  newGameState[n][m].movableEntity &&
+                  isMatchableEntity(newGameState[n][m].movableEntity.entityId)
+                ) {
+                  newGameState[n][m].movableEntity.fading = true;
+                }
+              }
+            }
+          } else if (surroundingMovableEntities[k].entityId === ENTITIES.BLOCK) {
+            //  Otherwise, we're connecting with a block, so fade all blocks
+            //  in the game area with the same colour
+            for (let n = 0; n < newGameState.length; n++) {
+              for (let m = 0; m < newGameState[n].length; m++) {
+                if (
+                  newGameState[n][m].movableEntity &&
+                  newGameState[n][m].movableEntity.entityId === ENTITIES.BLOCK &&
+                  newGameState[n][m].movableEntity.color === surroundingMovableEntities[k].color
+                ) {
+                  newGameState[n][m].movableEntity.fading = true;
+                }
+              }
+            }
+          }
+
+          finished = false;
+        } else if (entitiesMatch(currentMovableEntity, surroundingMovableEntities[k])) {
+          currentMovableEntity.fading = true;
+          surroundingMovableEntities[k].fading = true;
+          finished = false;
+        }
+      }
+    }
+  }
+
+  return {
+    finished,
+    newGameState,
+  };
+};
+
+/**
+ * Returns an array of the tiles to process in the correct order depending on
+ * the direction of gravity
+ * @param {Array} gameState - The current game state
+ * @param {String} direction - The current direction of gravity
+ * @returns {Array} An order array of tiles to process
+ */
+const getTilesToProcess = (gameState, direction) => {
+  const tilesToProcess = [];
+  let i;
+  let j;
+
+  switch (direction) {
+    case MOVE_UP: {
+      for (i = 1; i < gameState.length; i++) {
+        for (j = 0; j < gameState[i].length; j++) {
+          tilesToProcess.push({
+            currentTile: gameState[i][j],
+            nextTile: gameState[i - 1][j],
+          });
+        }
+      }
+      break;
+    }
+    case MOVE_RIGHT: {
+      for (i = 0; i < gameState.length; i++) {
+        for (j = gameState[i].length - 2; j >= 0; j--) {
+          tilesToProcess.push({
+            currentTile: gameState[i][j],
+            nextTile: gameState[i][j + 1],
+          });
+        }
+      }
+      break;
+    }
+    case MOVE_LEFT: {
+      for (i = 0; i < gameState.length; i++) {
+        for (j = 1; j < gameState[i].length; j++) {
+          tilesToProcess.push({
+            currentTile: gameState[i][j],
+            nextTile: gameState[i][j - 1],
+          });
+        }
+      }
+      break;
+    }
+    case MOVE_DOWN: {
+      for (i = gameState.length - 2; i >= 0; i--) {
+        for (j = 0; j < gameState[i].length; j++) {
+          tilesToProcess.push({
+            currentTile: gameState[i][j],
+            nextTile: gameState[i + 1][j],
+          });
+        }
+      }
+      break;
+    }
+    default:
+  }
+
+  return tilesToProcess;
+};
+
+/**
  * Returns the next game state based on the current direction of gravity
  * @param {Array} gameState - The current game state
  * @param {String} direction - The direction of gravity to move the entities in
@@ -148,11 +300,8 @@ const calulateNextGameState = (gameState, direction) => {
   let newGameState = JSON.parse(JSON.stringify(gameState));
   let finished = true;
   let i;
-  let j;
   let currentTile;
   let nextTile;
-  let currentMovableEntity;
-  let surroundingMovableEntities;
   let newDirection = direction;
 
   const removeFadingEntitiesResult = removeFadingEntities(gameState);
@@ -167,54 +316,7 @@ const calulateNextGameState = (gameState, direction) => {
   }
 
   //  Populate an array of tiles to process in the correct order depending on gravity direction
-  const tilesToProcess = [];
-  switch (direction) {
-    case MOVE_UP: {
-      for (i = 1; i < newGameState.length; i++) {
-        for (j = 0; j < newGameState[i].length; j++) {
-          tilesToProcess.push({
-            currentTile: newGameState[i][j],
-            nextTile: newGameState[i - 1][j],
-          });
-        }
-      }
-      break;
-    }
-    case MOVE_RIGHT: {
-      for (i = 0; i < newGameState.length; i++) {
-        for (j = newGameState[i].length - 2; j >= 0; j--) {
-          tilesToProcess.push({
-            currentTile: newGameState[i][j],
-            nextTile: newGameState[i][j + 1],
-          });
-        }
-      }
-      break;
-    }
-    case MOVE_LEFT: {
-      for (i = 0; i < newGameState.length; i++) {
-        for (j = 1; j < newGameState[i].length; j++) {
-          tilesToProcess.push({
-            currentTile: newGameState[i][j],
-            nextTile: newGameState[i][j - 1],
-          });
-        }
-      }
-      break;
-    }
-    case MOVE_DOWN: {
-      for (i = newGameState.length - 2; i >= 0; i--) {
-        for (j = 0; j < newGameState[i].length; j++) {
-          tilesToProcess.push({
-            currentTile: newGameState[i][j],
-            nextTile: newGameState[i + 1][j],
-          });
-        }
-      }
-      break;
-    }
-    default:
-  }
+  const tilesToProcess = getTilesToProcess(newGameState, direction);
 
   //  Go through each of the game state's tiles in order....
   for (i = 0; i < tilesToProcess.length; i++) {
@@ -276,75 +378,8 @@ const calulateNextGameState = (gameState, direction) => {
 
   //  If finished moving then determine whether we should fade any blocks
   if (finished) {
-    for (i = 0; i < newGameState.length; i++) {
-      for (j = 0; j < newGameState[i].length; j++) {
-        //  If the current tile doesn't have a movable entity
-        //  that isn't fading then move on to the next
-        if (!newGameState[i][j].movableEntity || newGameState[i][j].movableEntity.fading) continue;
-
-        currentMovableEntity = newGameState[i][j].movableEntity;
-        surroundingMovableEntities = [];
-
-        //  Push all surrounding movable entities into an array
-        if (i > 0 && newGameState[i - 1][j].movableEntity) {
-          surroundingMovableEntities.push(newGameState[i - 1][j].movableEntity);
-        }
-        if (i < newGameState.length - 1 && newGameState[i + 1][j].movableEntity) {
-          surroundingMovableEntities.push(newGameState[i + 1][j].movableEntity);
-        }
-        if (j > 0 && newGameState[i][j - 1].movableEntity) {
-          surroundingMovableEntities.push(newGameState[i][j - 1].movableEntity);
-        }
-        if (j < newGameState[0].length - 1 && newGameState[i][j + 1].movableEntity) {
-          surroundingMovableEntities.push(newGameState[i][j + 1].movableEntity);
-        }
-
-        //  For each surrounding movable entity, check to see whether it is fading
-        for (let k = 0; k < surroundingMovableEntities.length; k++) {
-          //  If current entity is a smart bomb and a surrounding entity is matchable...
-          if (
-            currentMovableEntity.entityId === ENTITIES.SMART_BOMB &&
-            isMatchableEntity(surroundingMovableEntities[k].entityId)
-          ) {
-            currentMovableEntity.fading = true;
-
-            //  If connecting with a rainbow block then fade ALL movable entities
-            if (surroundingMovableEntities[k].entityId === ENTITIES.RAINBOW_BLOCK) {
-              for (let n = 0; n < newGameState.length; n++) {
-                for (let m = 0; m < newGameState[n].length; m++) {
-                  if (
-                    newGameState[n][m].movableEntity &&
-                    isMatchableEntity(newGameState[n][m].movableEntity.entityId)
-                  ) {
-                    newGameState[n][m].movableEntity.fading = true;
-                  }
-                }
-              }
-            } else if (surroundingMovableEntities[k].entityId === ENTITIES.BLOCK) {
-              //  Otherwise, we're connecting with a block, so fade all blocks
-              //  in the game area with the same colour
-              for (let n = 0; n < newGameState.length; n++) {
-                for (let m = 0; m < newGameState[n].length; m++) {
-                  if (
-                    newGameState[n][m].movableEntity &&
-                    newGameState[n][m].movableEntity.entityId === ENTITIES.BLOCK &&
-                    newGameState[n][m].movableEntity.color === surroundingMovableEntities[k].color
-                  ) {
-                    newGameState[n][m].movableEntity.fading = true;
-                  }
-                }
-              }
-            }
-
-            finished = false;
-          } else if (entitiesMatch(currentMovableEntity, surroundingMovableEntities[k])) {
-            currentMovableEntity.fading = true;
-            surroundingMovableEntities[k].fading = true;
-            finished = false;
-          }
-        }
-      }
-    }
+    const fadeEntitiesResult = fadeEntities(newGameState);
+    ({ finished, newGameState } = fadeEntitiesResult);
   }
 
   //  No more moves to calculate if entities stopped moving and no fading to do
@@ -474,4 +509,6 @@ module.exports = {
   levelIsComplete,
   makeMoves,
   movableEntityCanMove,
+  getTilesToProcess,
+  fadeEntities,
 };
