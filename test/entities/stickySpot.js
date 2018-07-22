@@ -11,15 +11,15 @@ describe('Sticky spot entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
-        { staticEntity: { id: 4, entityId: ENTITIES.STICKY_SPOT }, movableEntity: null },
-        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
+        { staticEntity: { id: 4, entityId: ENTITIES.STICKY_SPOT.id }, movableEntity: null },
+        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 6 },
         },
       ],
     ];
@@ -37,31 +37,31 @@ describe('Sticky spot entity', () => {
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#8B4513', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#8B4513', id: 1 },
         },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#800080', id: 3 },
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#800080', id: 3 },
         },
         {
-          staticEntity: { id: 6, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#8B4513', id: 5 },
+          staticEntity: { id: 6, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#8B4513', id: 5 },
         },
-        { staticEntity: { id: 7, entityId: ENTITIES.FLOOR }, movableEntity: null },
-        { staticEntity: { id: 8, entityId: ENTITIES.STICKY_SPOT }, movableEntity: null },
-        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
+        { staticEntity: { id: 8, entityId: ENTITIES.STICKY_SPOT.id }, movableEntity: null },
+        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
       ],
       [
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 11, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#800080', id: 10 },
+          staticEntity: { id: 11, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#800080', id: 10 },
         },
         { staticEntity: null, movableEntity: null },
       ],
@@ -76,11 +76,11 @@ describe('Sticky spot entity', () => {
   it('Stops entities interacting with adjacent black holes', () => {
     const gameState = [
       [
-        { staticEntity: { id: 1, entityId: ENTITIES.BLACK_HOLE }, movableEntity: null },
-        { staticEntity: { id: 2, entityId: ENTITIES.STICKY_SPOT }, movableEntity: null },
+        { staticEntity: { id: 1, entityId: ENTITIES.BLACK_HOLE.id }, movableEntity: null },
+        { staticEntity: { id: 2, entityId: ENTITIES.STICKY_SPOT.id }, movableEntity: null },
         {
-          staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 3 },
+          staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 3 },
         },
       ],
     ];

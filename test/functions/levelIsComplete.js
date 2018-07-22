@@ -2,12 +2,12 @@ import { ENTITIES, levelIsComplete } from '../../src/';
 
 describe('levelIsComplete()', () => {
   const gameState = [
-    [{ staticEntity: { id: 1, entityId: ENTITIES.FLOOR }, movableEntity: null }],
-    [{ staticEntity: { id: 2, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+    [{ staticEntity: { id: 1, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
+    [{ staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
     [
       {
-        staticEntity: { id: 4, entityId: ENTITIES.FLOOR },
-        movableEntity: { id: 3, entityId: ENTITIES.BLOCK },
+        staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id },
+        movableEntity: { id: 3, entityId: ENTITIES.BLOCK.id },
       },
     ],
   ];

@@ -6,16 +6,16 @@ describe('Barrier entity', () => {
       const gameState = [
         [
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
           },
           {
-            staticEntity: { entityId: ENTITIES.BARRIER, powered: true, id: 3 },
+            staticEntity: { entityId: ENTITIES.BARRIER.id, powered: true, id: 3 },
             movableEntity: null,
           },
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 5 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 4 },
           },
         ],
       ];
@@ -30,16 +30,16 @@ describe('Barrier entity', () => {
       const gameState = [
         [
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
           },
           {
-            staticEntity: { entityId: ENTITIES.BARRIER, powered: false, id: 3 },
+            staticEntity: { entityId: ENTITIES.BARRIER.id, powered: false, id: 3 },
             movableEntity: null,
           },
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 5 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 4 },
           },
         ],
       ];
@@ -56,12 +56,12 @@ describe('Barrier entity', () => {
       const gameState = [
         [
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
           },
           {
             staticEntity: {
-              entityId: ENTITIES.BARRIER,
+              entityId: ENTITIES.BARRIER.id,
               powered: true,
               color: '#0000ff',
               id: 3,
@@ -69,8 +69,8 @@ describe('Barrier entity', () => {
             movableEntity: null,
           },
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 5 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 4 },
           },
         ],
       ];
@@ -85,12 +85,12 @@ describe('Barrier entity', () => {
       const gameState = [
         [
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
           },
           {
             staticEntity: {
-              entityId: ENTITIES.BARRIER,
+              entityId: ENTITIES.BARRIER.id,
               powered: true,
               color: '#ff0000',
               id: 3,
@@ -98,8 +98,8 @@ describe('Barrier entity', () => {
             movableEntity: null,
           },
           {
-            staticEntity: { entityId: ENTITIES.FLOOR, id: 5 },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+            staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 4 },
           },
         ],
       ];

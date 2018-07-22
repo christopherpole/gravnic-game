@@ -4,10 +4,10 @@ describe('Level 8', () => {
   it('Matches the correct snapshot', () => {
     const gameState = [
       [
-        { staticEntity: { id: 1, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 1, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 3, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 2 },
+          staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 2 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
@@ -15,22 +15,22 @@ describe('Level 8', () => {
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 4 },
         },
         { staticEntity: null, movableEntity: null },
-        { staticEntity: { id: 6, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 6, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
       ],
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { id: 8, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 7 },
+          staticEntity: { id: 8, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 7 },
         },
-        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 9, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 11, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 10 },
+          staticEntity: { id: 11, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 10 },
         },
       ],
     ];

@@ -5,10 +5,10 @@ describe('removeFadingEntities()', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
       ],
     ];
 
@@ -24,26 +24,26 @@ describe('removeFadingEntities()', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
           movableEntity: {
-            entityId: ENTITIES.BLOCK,
+            entityId: ENTITIES.BLOCK.id,
             color: '#ff0000',
             fading: true,
             id: 1,
           },
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
       ],
     ];
 
     const expectedGameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 },
           movableEntity: null,
         },
       ],
@@ -61,26 +61,26 @@ describe('removeFadingEntities()', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
           movableEntity: {
-            entityId: ENTITIES.BLOCK,
+            entityId: ENTITIES.BLOCK.id,
             color: '#ff0000',
             shrinking: true,
             id: 1,
           },
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
       ],
     ];
 
     const expectedGameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 },
           movableEntity: null,
         },
       ],
@@ -98,21 +98,21 @@ describe('removeFadingEntities()', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.BLACK_HOLE, shrinking: true, id: 1 },
+          staticEntity: { entityId: ENTITIES.BLACK_HOLE.id, shrinking: true, id: 1 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 2 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 }, movableEntity: null },
       ],
     ];
 
     const expectedGameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 1 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
           movableEntity: null,
         },
       ],

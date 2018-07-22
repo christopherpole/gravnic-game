@@ -13,62 +13,62 @@ describe('Level 20', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_RIGHT, id: 1 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_RIGHT, id: 1 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_DOWN, id: 2 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_DOWN, id: 2 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_UP, id: 4 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_UP, id: 4 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 5 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 6 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 7 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 6 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 7 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_LEFT, id: 8 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_LEFT, id: 8 },
           movableEntity: null,
         },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.STICKY_SPOT, id: 9 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 10 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.STICKY_SPOT.id, id: 9 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 10 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_DOWN, id: 11 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_DOWN, id: 11 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_LEFT, id: 12 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_LEFT, id: 12 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 13 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 13 }, movableEntity: null },
       ],
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 15 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 14 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 15 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 14 },
         },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_LEFT, id: 16 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_LEFT, id: 16 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_RIGHT, id: 17 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_RIGHT, id: 17 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 19 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 18 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 19 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 18 },
         },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_UP, id: 20 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_UP, id: 20 },
           movableEntity: null,
         },
       ],

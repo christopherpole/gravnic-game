@@ -11,10 +11,10 @@ describe('Black hole entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.BLACK_HOLE }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.BLACK_HOLE.id }, movableEntity: null },
       ],
     ];
 
@@ -28,17 +28,17 @@ describe('Black hole entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.BLACK_HOLE }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.BLACK_HOLE.id }, movableEntity: null },
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 4 },
         },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 6 },
         },
       ],
     ];

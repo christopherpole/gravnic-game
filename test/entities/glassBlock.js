@@ -5,11 +5,11 @@ describe('Glass block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 1 },
         },
       ],
-      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
     ];
 
     const gameStates = changeGravityDirection(gameState, MOVE_DOWN);
@@ -22,15 +22,15 @@ describe('Glass block entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 1 },
         },
       ],
-      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null }],
+      [{ staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null }],
       [
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK, id: 4 },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.RAINBOW_BLOCK.id, id: 4 },
         },
       ],
     ];

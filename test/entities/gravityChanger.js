@@ -14,21 +14,21 @@ describe('Gravity changer entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
       ],
-      [{ staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null }],
+      [{ staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null }],
       [
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_UP, id: 4 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_UP, id: 4 },
           movableEntity: null,
         },
       ],
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 6 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 5 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 6 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 5 },
         },
       ],
     ];
@@ -43,26 +43,26 @@ describe('Gravity changer entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
         { staticEntity: null, movableEntity: null },
         { staticEntity: null, movableEntity: null },
       ],
       [
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_UP, id: 4 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_UP, id: 4 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 5 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 7 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 6 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 7 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 6 },
         },
       ],
     ];
@@ -76,14 +76,14 @@ describe('Gravity changer entity', () => {
   it('Stops gravity correctly', () => {
     const gameState = [
       [
-        { staticEntity: { entityId: ENTITIES.BLACK_HOLE, id: 1 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.BLACK_HOLE.id, id: 1 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_NONE, id: 2 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_NONE, id: 2 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 4 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#800080', id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#800080', id: 3 },
         },
       ],
     ];
@@ -97,21 +97,21 @@ describe('Gravity changer entity', () => {
   it("Doesn't crash the level in the case of an infinate loop", () => {
     const gameState = [
       [
-        { staticEntity: { entityId: ENTITIES.BLACK_HOLE, id: 1 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.BLACK_HOLE.id, id: 1 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: 'MOVE_RIGHT', id: 2 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: 'MOVE_RIGHT', id: 2 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 5 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#0000FF', id: 4 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 5 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#0000FF', id: 4 },
         },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: 'MOVE_LEFT', id: 6 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: 'MOVE_LEFT', id: 6 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.BLACK_HOLE, id: 7 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.BLACK_HOLE.id, id: 7 }, movableEntity: null },
       ],
     ];
 
@@ -126,36 +126,36 @@ describe('Gravity changer entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 3 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 4 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 }, movableEntity: null },
       ],
       [
         { staticEntity: null, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 6 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 5 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 6 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 5 },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 8 },
-          movableEntity: { entityId: ENTITIES.GLASS, id: 7 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 8 },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 7 },
         },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 9 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 10 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 11 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 9 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 10 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 11 }, movableEntity: null },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 12 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 12 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_LEFT, id: 13 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_LEFT, id: 13 },
           movableEntity: null,
         },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_UP, id: 14 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_UP, id: 14 },
           movableEntity: null,
         },
       ],
@@ -171,37 +171,37 @@ describe('Gravity changer entity', () => {
     const gameState = [
       [
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 4 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FF8C00', id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 4 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FF8C00', id: 3 },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 6 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#FFFF00', id: 5 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 6 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#FFFF00', id: 5 },
         },
         {
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 8 },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 7 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 8 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 7 },
         },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 9 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 9 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_UP, id: 10 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_UP, id: 10 },
           movableEntity: null,
         },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 11 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.FLOOR, id: 12 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 11 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.FLOOR.id, id: 12 }, movableEntity: null },
       ],
       [
-        { staticEntity: { entityId: ENTITIES.LAVA, id: 13 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.BLACK_HOLE, id: 14 }, movableEntity: null },
-        { staticEntity: { entityId: ENTITIES.STICKY_SPOT, id: 15 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.LAVA.id, id: 13 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.BLACK_HOLE.id, id: 14 }, movableEntity: null },
+        { staticEntity: { entityId: ENTITIES.STICKY_SPOT.id, id: 15 }, movableEntity: null },
         {
-          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER, direction: MOVE_NONE, id: 16 },
+          staticEntity: { entityId: ENTITIES.GRAVITY_CHANGER.id, direction: MOVE_NONE, id: 16 },
           movableEntity: null,
         },
       ],

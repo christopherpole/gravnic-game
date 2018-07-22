@@ -5,15 +5,15 @@ describe('Level 1', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
-        { staticEntity: { id: 4, entityId: ENTITIES.FLOOR }, movableEntity: null },
-        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
+        { staticEntity: { id: 4, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
+        { staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 6 },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 6 },
         },
       ],
     ];
