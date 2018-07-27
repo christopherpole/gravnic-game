@@ -65,6 +65,19 @@ describe('movableEntityCanMove()', () => {
     expect(movableEntityCanMove(currentTile, nextTile)).toBe(false);
   });
 
+  it('Should return "false" if the current movable entity is a crate that has moved', () => {
+    const currentTile = {
+      staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
+      movableEntity: { entityId: ENTITIES.CRATE.id, moved: true, id: 1 },
+    };
+    const nextTile = {
+      staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 },
+      movableEntity: null,
+    };
+
+    expect(movableEntityCanMove(currentTile, nextTile)).toBe(false);
+  });
+
   it('Should return "false" if the next tile has a powered barrier whose color does not match the current movable entity\'s', () => {
     const currentTile = {
       staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
