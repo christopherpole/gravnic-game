@@ -82,6 +82,11 @@ const movableEntityCanMove = (currentTile, nextTile) => {
     return false;
   }
 
+  //  If the current tile's movable entity is a create that has moved then return "false"
+  if (currentTile.movableEntity.entityId === ENTITIES.CRATE.id && currentTile.movableEntity.moved) {
+    return false;
+  }
+
   //  If the current tile's movable entity if stuck then return "false"
   if (currentTile.movableEntity.stuck) {
     return false;
@@ -312,6 +317,34 @@ const getTilesToProcess = (gameState, direction) => {
 };
 
 /**
+ * Modifies the game state so that crates are able to move again
+ * @param {Array} gameState - The current game state
+ * @returns {Object} The updated game state
+ */
+const unstickCrates = gameState => {
+  const newGameState = JSON.parse(JSON.stringify(gameState));
+  let finished = true;
+
+  for (let i = 0; i < newGameState.length; i++) {
+    for (let j = 0; j < newGameState[i].length; j++) {
+      if (
+        newGameState[i][j].movableEntity &&
+        newGameState[i][j].movableEntity.entityId === ENTITIES.CRATE.id &&
+        newGameState[i][j].movableEntity.moved
+      ) {
+        delete newGameState[i][j].movableEntity.moved;
+        finished = false;
+      }
+    }
+  }
+
+  return {
+    newGameState,
+    finished,
+  };
+};
+
+/**
  * Returns the next game state based on the current direction of gravity
  * @param {Array} gameState - The current game state
  * @param {String} direction - The direction of gravity to move the entities in
@@ -385,6 +418,10 @@ const calulateNextGameState = (gameState, direction) => {
       nextTile.movableEntity = currentTile.movableEntity;
       currentTile.movableEntity = null;
       finished = false;
+
+      if (nextTile.movableEntity.entityId === ENTITIES.CRATE.id) {
+        nextTile.movableEntity.moved = true;
+      }
     }
 
     //  Stick any movable entities that land on a sticky spot
@@ -434,6 +471,12 @@ const changeGravityDirection = (gameState, direction) => {
 
   if (!moveGameStates.length) {
     moveGameStates.push(gameState);
+  }
+
+  //  Unstick any crates
+  const unstickCratesResult = unstickCrates(moveGameStates[moveGameStates.length - 1]);
+  if (!unstickCratesResult.finished) {
+    moveGameStates.push(unstickCratesResult.newGameState);
   }
 
   return moveGameStates;
@@ -522,5 +565,6 @@ module.exports = {
   makeMoves,
   movableEntityCanMove,
   getTilesToProcess,
+  unstickCrates,
   fadeEntities,
 };
