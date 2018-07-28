@@ -16,8 +16,8 @@ const ENTITIES = {
   GLASS: {
     id: 'GLASS',
   },
-  BOMB: {
-    id: 'BOMB',
+  CRUSHER: {
+    id: 'CRUSHER',
   },
   CRATE: {
     id: 'CRATE',
@@ -422,6 +422,28 @@ const calulateNextGameState = (gameState, direction) => {
       if (nextTile.movableEntity.entityId === ENTITIES.CRATE.id) {
         nextTile.movableEntity.moved = true;
       }
+      //  Crush any movable entities with the crusher
+    } else if (
+      currentTile.movableEntity &&
+      currentTile.movableEntity.entityId === ENTITIES.CRUSHER.id &&
+      !currentTile.movableEntity.stuck &&
+      nextTile.movableEntity
+    ) {
+      nextTile.movableEntity = currentTile.movableEntity;
+      currentTile.movableEntity = null;
+      finished = false;
+      //  Crush any movable entities moving into a crusher
+    } else if (
+      currentTile.movableEntity &&
+      nextTile.movableEntity &&
+      nextTile.movableEntity.entityId === ENTITIES.CRUSHER.id &&
+      !(
+        currentTile.movableEntity.entityId === ENTITIES.CRATE.id && currentTile.movableEntity.moved
+      ) &&
+      !currentTile.movableEntity.stuck
+    ) {
+      currentTile.movableEntity = null;
+      finished = false;
     }
 
     //  Stick any movable entities that land on a sticky spot
