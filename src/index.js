@@ -57,6 +57,11 @@ const ENTITIES = {
     id: 'BARRIER',
     static: true,
   },
+  TELEPORTER: {
+    id: 'TELEPORTER',
+    static: true,
+    linkable: true,
+  },
 };
 
 /**
@@ -354,9 +359,12 @@ const calulateNextGameState = (gameState, direction) => {
   let newGameState = JSON.parse(JSON.stringify(gameState));
   let finished = true;
   let i;
+  let j;
+  let k;
   let currentTile;
   let nextTile;
   let newDirection = direction;
+  const teleportingTiles = [];
 
   const removeFadingEntitiesResult = removeFadingEntities(gameState);
   newGameState = removeFadingEntitiesResult.gameState;
@@ -422,6 +430,13 @@ const calulateNextGameState = (gameState, direction) => {
       if (nextTile.movableEntity.entityId === ENTITIES.CRATE.id) {
         nextTile.movableEntity.moved = true;
       }
+
+      if (
+        nextTile.staticEntity.entityId === ENTITIES.TELEPORTER.id &&
+        nextTile.staticEntity.linkedEntityId
+      ) {
+        teleportingTiles.push(nextTile);
+      }
       //  Crush any movable entities with the crusher
     } else if (
       currentTile.movableEntity &&
@@ -453,6 +468,27 @@ const calulateNextGameState = (gameState, direction) => {
       nextTile.staticEntity.entityId === ENTITIES.STICKY_SPOT.id
     ) {
       nextTile.movableEntity.stuck = true;
+    }
+  }
+
+  //  Move all entities that are teleporting
+  for (i = 0; i < teleportingTiles.length; i++) {
+    let linkedTile;
+
+    for (j = 0; j < newGameState.length; j++) {
+      for (k = 0; k < newGameState[0].length; k++) {
+        if (
+          newGameState[j][k].staticEntity &&
+          newGameState[j][k].staticEntity.id === teleportingTiles[i].staticEntity.linkedEntityId
+        ) {
+          linkedTile = newGameState[j][k];
+        }
+      }
+    }
+
+    if (!linkedTile.movableEntity) {
+      linkedTile.movableEntity = teleportingTiles[i].movableEntity;
+      teleportingTiles[i].movableEntity = null;
     }
   }
 
