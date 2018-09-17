@@ -48,7 +48,7 @@ jobs:
           command: yarn lint
       - run:
           name: Run tests
-          command: yarn test
+          command: yarn test --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - run:
           name: Build
           command: yarn build
